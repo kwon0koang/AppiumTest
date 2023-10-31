@@ -43,16 +43,17 @@ class TestAppium(unittest.TestCase):
 
         # 객체 인식
         calculator.find_element(by=AppiumBy.ACCESSIBILITY_ID, value='초기화').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="1"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="1"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="1"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="1"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="더하기"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="2"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="2"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="2"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="2"]').click()
-        calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@content-desc="계산"]').click()
+        el1 = calculator.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="1")
+        el1.click()
+        el1.click()
+        el1.click()
+        calculator.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="더하기").click()
+        el2 = calculator.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="2")
+        el2.click()
+        el2.click()
+        el2.click()
+        calculator.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="계산").click()
+        
         sumValue = calculator.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="com.sec.android.app.popupcalculator:id/calc_edt_formula"]').text
 
         def extractNumbers(input_string):
