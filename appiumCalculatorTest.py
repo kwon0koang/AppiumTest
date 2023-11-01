@@ -10,7 +10,8 @@ capabilities = {
   "appium:deviceName": "R3CMA0F73PL",
   "appium:appPackage": "com.sec.android.app.popupcalculator",
   "appium:appActivity": ".Calculator",
-  "appium:automationName": "uiautomator2"
+  "appium:automationName": "uiautomator2",
+  "appium:noReset": "true" # 앱 재설치 X
 }
 
 appium_server_url = 'http://localhost:4723/wd/hub'
