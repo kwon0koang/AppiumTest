@@ -14,6 +14,7 @@ capabilities = {
   "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
   "appium:automationName": "uiautomator2"
+  "appium:autoGrantPermissions": "true"
 }
 
 appium_server_url = 'http://localhost:4723/wd/hub'
