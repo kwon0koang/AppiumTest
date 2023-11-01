@@ -13,7 +13,7 @@ capabilities = {
   "appium:deviceName": "R3CMA0F73PL",
   "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
-  "appium:automationName": "uiautomator2"
+  "appium:automationName": "uiautomator2",
   "appium:autoGrantPermissions": "true"
 }
 
