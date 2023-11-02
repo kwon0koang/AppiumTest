@@ -1,0 +1,5 @@
+
+Failed to create session. An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: socket hang up
+오류나면
+adb uninstall io.appium.uiautomator2.server.test
+한 다음에 재실행하면 정상 동작함
