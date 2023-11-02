@@ -1,5 +1,4 @@
 import unittest
-import re
 import time
 from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
@@ -23,13 +22,11 @@ class TestAppium(unittest.TestCase):
         if self.driver:
             self.driver.quit()
 
-    def test_tab_action(self) -> None:
+    def test_action(self) -> None:
         driver = self.driver
         
-        wait = WebDriverWait(driver, 20)
-        
-        wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, el_todo_list))).click()
-        wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, el_todo_item))).click()
+        util.click_element(driver=driver, id=el_todo_list)
+        util.click_element(driver=driver, id=el_todo_item)
         
         time.sleep(3)
 
