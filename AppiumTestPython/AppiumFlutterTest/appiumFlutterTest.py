@@ -9,10 +9,12 @@ from selenium.webdriver.support import expected_conditions as EC
 import config
 import util
 import sys
+from enum import Enum
 
-el_todo_list = "Todo list" if util.is_aos() else "todo"
-el_todo_item = "2 / 27 / true / veritatis pariatur delectus" if util.is_aos() else "todo"
-        
+id_todo_list = util.get_id(aos="Todo list", ios="todo")
+xpath_filter_text = util.get_xpath(aos="//android.widget.EditText", ios="todo")
+id_todo_item = util.get_id(aos="2 / 27 / true / veritatis pariatur delectus", ios="todo")
+
 class TestAppium(unittest.TestCase):
     def setUp(self) -> None:
         capabilities_options = UiAutomator2Options().load_capabilities(config.capabilities)
@@ -25,8 +27,17 @@ class TestAppium(unittest.TestCase):
     def test_action(self) -> None:
         driver = self.driver
         
-        util.click_element(driver=driver, id=el_todo_list)
-        util.click_element(driver=driver, id=el_todo_item)
+        util.click_element(driver=driver, id=id_todo_list)
+        
+        # time.sleep(2)
+        # util.scroll(driver=driver, direction=util.ScrollDirection.DOWN)
+        # util.scroll(driver=driver, direction=util.ScrollDirection.UP)
+        
+        util.click_element(driver=driver, xpath=xpath_filter_text)
+        driver.find_element(by=AppiumBy.XPATH, value=xpath_filter_text).send_keys("veritatis pariatur delectus")
+        driver.hide_keyboard()
+        
+        util.click_element(driver=driver, id=id_todo_item)
         
         time.sleep(3)
 

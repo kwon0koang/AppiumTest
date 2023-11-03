@@ -25,7 +25,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TipTest {
+public class MyTest {
 
 	private AppiumDriver driver;
 	
@@ -50,28 +50,23 @@ public class TipTest {
 	
 	@Test
 	public void testCalculateDefaultTip() {
+		// O
+//		driver.findElement(AppiumBy.accessibilityId("Todo list")).click();
+//		driver.findElement(AppiumBy.accessibilityId("2 / 27 / true / veritatis pariatur delectus")).click();
+
+		// O
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+////		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(AppiumBy.accessibilityId("Todo list")))).click();
+////		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(AppiumBy.accessibilityId("2 / 27 / true / veritatis pariatur delectus")))).click();
+//		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(AppiumBy.accessibilityId("Todo list"))).stream().findFirst().get().click();
+//		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(AppiumBy.accessibilityId("2 / 27 / true / veritatis pariatur delectus"))).stream().findFirst().get().click();
+
+		// ================================================================================================================================================
+
 		TestFlutterPageObject testFlutter = new TestFlutterPageObject(driver);
-
-		System.out.println("kyk / " + testFlutter.getTodoList());
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(AppiumBy.accessibilityId(testFlutter.getTodoList())))).click();
-
-//		WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(20));
-//		wait2.until(ExpectedConditions.elementToBeClickable(driver.findElement(AppiumBy.accessibilityId("2 / 27 / true / veritatis pariatur delectus")))).click();
-
-
-
-
-
-//		MainScreenPageObject mainScreen = new MainScreenPageObject(driver);
-//
-//		mainScreen.fillBillAmount("100");
-//		mainScreen.clickCalculateTip();
-//
-//		assertEquals("$15.00", mainScreen.getTipAmount());
-//		assertEquals("$115.00", mainScreen.getTotalAmount());
-		
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(AppiumBy.accessibilityId(testFlutter.getTodoList()))).stream().findFirst().get().click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(AppiumBy.accessibilityId(testFlutter.getTodoItem()))).stream().findFirst().get().click();
 	}
 
 }
