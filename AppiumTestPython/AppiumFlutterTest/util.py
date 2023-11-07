@@ -6,11 +6,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from enum import Enum
 from appium.webdriver.common.touch_action import TouchAction
+from appium.options.android import UiAutomator2Options
+from appium.options.ios import XCUITestOptions
 
 # aos 인지 여부
 def is_aos():
     return "ANDROID" == str.upper(config.capabilities['platformName'])
 
+def get_capabilities_options():
+    if is_aos():
+        return UiAutomator2Options().load_capabilities(config.capabilities)
+    else:
+        return XCUITestOptions().load_capabilities(config.capabilities)
 def get_id(aos: str, ios: str):
     return aos if is_aos() else ios
 def get_xpath(aos: str, ios: str):
@@ -23,13 +30,13 @@ def get_xpath(aos: str, ios: str):
 def click_element(driver: webdriver, id: str=None, xpath: str=None):
     wait = WebDriverWait(driver, 10)
     if id:
-        print(f"Clicking element by ID: {id}")
+        print(f"Click element by ID: {id}")
         wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id))).click()
     elif xpath:
-        print(f"Clicking element by XPath: {xpath}")
+        print(f"Click element by XPath: {xpath}")
         wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath))).click()
     else:
-        print("Neither ID nor XPath provided. Cannot click the element.")
+        print("nothing")
     
 # 스크롤
 class ScrollDirection(Enum):

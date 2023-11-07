@@ -1,15 +1,15 @@
 appium_server_url = 'http://localhost:4723/wd/hub'
 
 # AOS
-capabilities = {
-  "platformName": "Android",
-  "appium:deviceName": "Galaxy",
-  "appium:appPackage": "com.example.test_flutter",
-  "appium:appActivity": ".MainActivity",
-  "appium:automationName": "UIAutomator2",
-  "appium:autoGrantPermissions": "true",
-  "appium:noReset": "true"
-}
+# capabilities = {
+#   "platformName": "Android",
+#   "appium:deviceName": "Galaxy",
+#   "appium:appPackage": "com.example.test_flutter",
+#   "appium:appActivity": ".MainActivity",
+#   "appium:automationName": "UIAutomator2",
+#   "appium:autoGrantPermissions": "true",
+#   "appium:noReset": "true"
+# }
 
 # todo kyk iOS
 # capabilities = {
@@ -18,19 +18,29 @@ capabilities = {
 #   "appium:deviceName": "iPhone SE",
 #   "appium:udid": "00008110-00167D812280401E",
 #   "appium:bundleId": "com.kykdev.testFlutter",
-#   "xcodeOrgId": "kwon0koang@naver.com",
-#   "xcodeSigningId": "Apple Developer",
+#   "appium:xcodeOrgId": "kwon0koang@naver.com",
+#   "appium:xcodeSigningId": "Apple Developer",
 #   "appium:automationName": "XCUITest",
 #   "appium:autoGrantPermissions": "true",
 #   "appium:noReset": "true",
-#   "appium:allowProvisioningDeviceRegistration": "true",
-#   "usePrebuildWDA": "true"
 # }
+capabilities = {
+  "platformName": "ios",
+  "appium:deviceName": "iPhone SE",
+  "appium:platformVersion": "15.4",
+  "appium:automationName": "xcuitest",
+  "appium:udid": "00008110-00167D812280401E",
+  "appium:bundleId": "com.kykdev.IntegrationApp",
+  "appium:xcodeOrgId": "kwon0koang@naver.com",
+  "appium:xcodeSigningId": "iPhone Developer"
+}
 
 # Temp
 # "appium:udid": "auto",
 # "appium:app": "com.kykdev.testFlutter",
 # "appium:appName": "com.kykdev.testFlutter",
+# "appium:allowProvisioningDeviceRegistration": "true",
+# "appium:usePrebuildWDA": "true"
 
 # iOS Success (https://velog.io/@tkjung/Appium-iOS-%ED%99%98%EA%B2%BD-%EC%85%8B%ED%8C%85#xcode%EC%97%90%EC%84%9C-webdriveragent-signing--build-settings-%EC%84%A4%EC%A0%95)
 # 실물 기기
