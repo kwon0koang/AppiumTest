@@ -23,20 +23,34 @@ def get_capabilities_options():
 def get_element(aos: str, ios: str):
     return aos if platform == Platform.AOS else ios
 
+# 클릭할 수 있을 때까지 기다림
+def wait_element_by_id(driver: webdriver.WebDriver, id: str):
+    wait = WebDriverWait(driver, 10)
+    wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id)))
+def wait_element_by_xpath(driver: webdriver.WebDriver, xpath: str):
+    wait = WebDriverWait(driver, 10)
+    wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath)))
 
+# 클릭할 수 있을 때 element 반환
 def find_element_by_id(driver: webdriver.WebDriver, id: str) -> WebElement:
+    wait_element_by_id(driver, id)
     return driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value=id)
 def find_element_by_xpath(driver: webdriver.WebDriver, xpath: str) -> WebElement:
+    wait_element_by_xpath(driver, xpath)
     return driver.find_element(by=AppiumBy.XPATH, value=xpath)
 
-# element 클릭할 수 있을 때까지 기다렸다가 클릭
+# 클릭할 수 있을 때 element 클릭
 def click_element_by_id(driver: webdriver.WebDriver, id: str):
-    wait = WebDriverWait(driver, 10)
-    wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id))).click()
+    find_element_by_id(driver, id).click()
 def click_element_by_xpath(driver: webdriver.WebDriver, xpath: str):
-    wait = WebDriverWait(driver, 10)
-    wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath))).click()
+    find_element_by_xpath(driver, xpath).click()
     
+# 클릭할 수 있을 때 element 클릭
+def send_keys_element_by_id(driver: webdriver.WebDriver, id: str, value: str):
+    find_element_by_id(driver, id).send_keys(value)
+def send_keys_element_by_xpath(driver: webdriver.WebDriver, xpath: str, value: str):
+    find_element_by_xpath(driver, xpath).send_keys(value)
+
 # 스크롤
 class ScrollDirection(Enum):
     DOWN = 8888
@@ -59,4 +73,6 @@ def scroll(driver: webdriver.WebDriver, direction: ScrollDirection) -> None:
     else:
         print("nothing")
 
-
+# todo kyk 스크롤
+def scroll_down_to():
+    ''

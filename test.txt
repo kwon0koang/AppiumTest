@@ -43,15 +43,15 @@ util.click_element_by_xpath(driver, xpath_edit_text_3)
 
 xpath_edit_text_777 = util.get_element(aos="//android.widget.EditText777", ios="")
 util.click_element_by_xpath(driver, xpath_edit_text_777)
-util.find_element_by_xpath(driver, xpath_edit_text_777).send_keys("aaa")
+util.send_keys_element_by_xpath(driver, xpath_edit_text_777, "aaa")
 driver.press_keycode(4)
 xpath_edit_text_888 = util.get_element(aos="//android.widget.EditText888", ios="")
 util.click_element_by_xpath(driver, xpath_edit_text_888)
-util.find_element_by_xpath(driver, xpath_edit_text_888).send_keys("bbb")
+util.send_keys_element_by_xpath(driver, xpath_edit_text_888, "bbb")
 driver.press_keycode(4)
 xpath_edit_text_999 = util.get_element(aos="//android.widget.EditText999", ios="")
 util.click_element_by_xpath(driver, xpath_edit_text_999)
-util.find_element_by_xpath(driver, xpath_edit_text_999).send_keys("ccc")
+util.send_keys_element_by_xpath(driver, xpath_edit_text_999, "ccc")
 driver.press_keycode(4)
 
 ===========================
