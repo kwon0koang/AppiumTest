@@ -9,19 +9,18 @@ from appium.webdriver.common.touch_action import TouchAction
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
 
-# aos 인지 여부
-def is_aos():
-    return "ANDROID" == str.upper(config.capabilities['platformName'])
+class Platform(Enum):
+    AOS = 1001
+    IOS = 1002
+platform = Platform.AOS
 
 def get_capabilities_options():
-    if is_aos():
-        return UiAutomator2Options().load_capabilities(config.capabilities)
+    if platform == Platform.AOS:
+        return UiAutomator2Options().load_capabilities(config.aos_capabilities)
     else:
-        return XCUITestOptions().load_capabilities(config.capabilities)
-def get_id(aos: str, ios: str):
-    return aos if is_aos() else ios
-def get_xpath(aos: str, ios: str):
-    return aos if is_aos() else ios
+        return XCUITestOptions().load_capabilities(config.ios_capabilities)
+def get_element(aos: str, ios: str):
+    return aos if platform == Platform.AOS else ios
 
 # element 클릭할 수 있을 때까지 기다렸다가 클릭
 # def click_element(driver: webdriver, id: str):

@@ -1,4 +1,25 @@
+
 appium_server_url = 'http://localhost:4723/wd/hub'
+
+aos_capabilities = {
+  "platformName": "Android",
+  "appium:deviceName": "Galaxy",
+  "appium:appPackage": "com.example.test_flutter",
+  "appium:appActivity": ".MainActivity",
+  "appium:automationName": "UIAutomator2",
+  "appium:autoGrantPermissions": "true",
+  "appium:noReset": "true"
+}
+ios_capabilities = {
+  "platformName": "ios",
+  "appium:deviceName": "iPhone SE",
+  "appium:platformVersion": "15.4",
+  "appium:automationName": "xcuitest",
+  "appium:udid": "00008110-00167D812280401E",
+  "appium:bundleId": "com.kykdev.IntegrationApp",
+  "appium:xcodeOrgId": "kwon0koang@naver.com",
+  "appium:xcodeSigningId": "iPhone Developer"
+}
 
 # AOS
 # capabilities = {
@@ -11,7 +32,7 @@ appium_server_url = 'http://localhost:4723/wd/hub'
 #   "appium:noReset": "true"
 # }
 
-# todo kyk iOS
+# todo kyk IOS
 # capabilities = {
 #   "platformName": "iOS",
 #   "appium:platformVersion": "15.4",
@@ -24,16 +45,21 @@ appium_server_url = 'http://localhost:4723/wd/hub'
 #   "appium:autoGrantPermissions": "true",
 #   "appium:noReset": "true",
 # }
-capabilities = {
-  "platformName": "ios",
-  "appium:deviceName": "iPhone SE",
-  "appium:platformVersion": "15.4",
-  "appium:automationName": "xcuitest",
-  "appium:udid": "00008110-00167D812280401E",
-  "appium:bundleId": "com.kykdev.IntegrationApp",
-  "appium:xcodeOrgId": "kwon0koang@naver.com",
-  "appium:xcodeSigningId": "iPhone Developer"
-}
+# todo kyk iOS 테스트 앱 성공
+# capabilities = {
+#   "platformName": "ios",
+#   "appium:deviceName": "iPhone SE",
+#   "appium:platformVersion": "15.4",
+#   "appium:automationName": "xcuitest",
+#   "appium:udid": "00008110-00167D812280401E",
+#   "appium:bundleId": "com.kykdev.IntegrationApp",
+#   "appium:xcodeOrgId": "kwon0koang@naver.com",
+#   "appium:xcodeSigningId": "iPhone Developer"
+# }
+
+
+
+
 
 # Temp
 # "appium:udid": "auto",
