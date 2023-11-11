@@ -36,16 +36,6 @@ def click_element_by_id(driver: webdriver.WebDriver, id: str):
 def click_element_by_xpath(driver: webdriver.WebDriver, xpath: str):
     wait = WebDriverWait(driver, 10)
     wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath))).click()
-# def click_element(driver: webdriver, id: str=None, xpath: str=None):
-#     wait = WebDriverWait(driver, 10)
-#     if id:
-#         print(f"Click element by ID: {id}")
-#         wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id))).click()
-#     elif xpath:
-#         print(f"Click element by XPath: {xpath}")
-#         wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath))).click()
-#     else:
-#         print("nothing")
     
 # 스크롤
 class ScrollDirection(Enum):
