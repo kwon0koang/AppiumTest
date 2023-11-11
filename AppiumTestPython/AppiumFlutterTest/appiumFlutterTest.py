@@ -44,24 +44,25 @@ class TestAppium(unittest.TestCase):
     def test_action(self) -> None:
         driver = self.driver
         
-        util.click_element(driver=driver, id=id_todo_list)
+        util.click_element_by_id(driver, id_todo_list)
         
         # time.sleep(2)
-        # util.scroll(driver=driver, direction=util.ScrollDirection.DOWN)
-        # util.scroll(driver=driver, direction=util.ScrollDirection.UP)
+        # util.scroll(driver, util.ScrollDirection.DOWN)
+        # util.scroll(driver, util.ScrollDirection.UP)
         
-        util.click_element(driver=driver, xpath=xpath_filter_text)
-        driver.find_element(by=AppiumBy.XPATH, value=xpath_filter_text).send_keys("veritatis pariatur delectus")
+        util.click_element_by_xpath(driver, xpath_filter_text)
+        util.find_element_by_xpath(driver, xpath_filter_text).send_keys("veritatis pariatur delectus")
         driver.hide_keyboard()
+        # driver.press_keycode(4) // back key
         
-        util.click_element(driver=driver, id=id_todo_item)
+        util.click_element_by_id(driver, id_todo_item)
         
         time.sleep(3)
         
         # todo kyk iOS 테스트 성공
         # driver = self.driver
-        # util.click_element(driver=driver, xpath=xpath_touch)
-        # util.click_element(driver=driver, id=id_touchable_view)
+        # util.click_element(driver, xpath_touch)
+        # util.click_element(driver, id_touchable_view)
         # time.sleep(3)
 
 # 파이썬 스크립트가 직접 실행될 때 해당 블록 안의 코드를 실행

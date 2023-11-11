@@ -1,5 +1,6 @@
 import config
-from appium import webdriver
+from appium.webdriver import webdriver
+from appium.webdriver.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
@@ -22,26 +23,35 @@ def get_capabilities_options():
 def get_element(aos: str, ios: str):
     return aos if platform == Platform.AOS else ios
 
+
+def find_element_by_id(driver: webdriver.WebDriver, id: str) -> WebElement:
+    return driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value=id)
+def find_element_by_xpath(driver: webdriver.WebDriver, xpath: str) -> WebElement:
+    return driver.find_element(by=AppiumBy.XPATH, value=xpath)
+
 # element 클릭할 수 있을 때까지 기다렸다가 클릭
-# def click_element(driver: webdriver, id: str):
-#     wait = WebDriverWait(driver, 10)
-#     wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id))).click()
-def click_element(driver: webdriver, id: str=None, xpath: str=None):
+def click_element_by_id(driver: webdriver.WebDriver, id: str):
     wait = WebDriverWait(driver, 10)
-    if id:
-        print(f"Click element by ID: {id}")
-        wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id))).click()
-    elif xpath:
-        print(f"Click element by XPath: {xpath}")
-        wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath))).click()
-    else:
-        print("nothing")
+    wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id))).click()
+def click_element_by_xpath(driver: webdriver.WebDriver, xpath: str):
+    wait = WebDriverWait(driver, 10)
+    wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath))).click()
+# def click_element(driver: webdriver, id: str=None, xpath: str=None):
+#     wait = WebDriverWait(driver, 10)
+#     if id:
+#         print(f"Click element by ID: {id}")
+#         wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id))).click()
+#     elif xpath:
+#         print(f"Click element by XPath: {xpath}")
+#         wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath))).click()
+#     else:
+#         print("nothing")
     
 # 스크롤
 class ScrollDirection(Enum):
     DOWN = 8888
     UP = 9999
-def scroll(driver: webdriver, direction: ScrollDirection) -> None:
+def scroll(driver: webdriver.WebDriver, direction: ScrollDirection) -> None:
     screen_size = driver.get_window_size()
     width = screen_size['width']
     height = screen_size['height']
