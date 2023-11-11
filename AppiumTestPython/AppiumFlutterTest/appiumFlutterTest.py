@@ -64,6 +64,8 @@ class TestAppium(unittest.TestCase):
         # util.click_element(driver=driver, id=id_touchable_view)
         # time.sleep(3)
 
+# 파이썬 스크립트가 직접 실행될 때 해당 블록 안의 코드를 실행
+# 모듈로 사용할 때(다른 스크립트로부터 import 되었을 때)는 실행 X
 if __name__ == '__main__':
     # unittest.main()
     
