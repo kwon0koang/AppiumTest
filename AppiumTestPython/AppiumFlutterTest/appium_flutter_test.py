@@ -11,14 +11,8 @@ import config
 import util
 import sys
 from enum import Enum
-
-id_todo_list = util.get_element(aos="Todo list", ios="todo")
-xpath_filter_text = util.get_element(aos="//android.widget.EditText", ios="todo")
-id_todo_item = util.get_element(aos="2 / 27 / true / veritatis pariatur delectus", ios="todo")
-
-# todo kyk iOS 테스트 성공
-xpath_touch = util.get_element(aos="todo", ios="//XCUIElementTypeStaticText[@name=\"Touch\"]")
-id_touchable_view = util.get_element(aos="todo", ios="touchableView")
+from pages.main_page import MainPage
+from pages.todo_list_page import TodoListPage
 
 class TestAppium(unittest.TestCase):
     def __init__(self, methodName='runTest', custom_parameter=None):
@@ -42,38 +36,37 @@ class TestAppium(unittest.TestCase):
             self.driver.quit()
 
     def test_action(self) -> None:
-        driver = self.driver
         
-        util.click_element_by_id(driver, id_todo_list)
+        # id_todo_list = util.get_element(aos="Todo list", ios="todo")
+        # util.click_element_by_id(self.driver, id_todo_list)
         
-        util.click_element_by_xpath(driver, xpath_filter_text)
-        util.send_keys_element_by_xpath(driver, xpath_filter_text, "veritatis pariatur delectus")
-        driver.hide_keyboard()
-        # driver.press_keycode(4) // back key
+        # xpath_filter_text = util.get_element(aos="//android.widget.EditText", ios="todo")
+        # util.click_element_by_xpath(self.driver, xpath_filter_text)
+        # util.send_keys_element_by_xpath(self.driver, xpath_filter_text, "veritatis pariatur delectus")
+        # self.driver.hide_keyboard()
         
-        util.click_element_by_id(driver, id_todo_item)
+        # id_todo_item = util.get_element(aos="2 / 27 / true / veritatis pariatur delectus", ios="todo")
+        # util.click_element_by_id(self.driver, id_todo_item)
+        
+        # time.sleep(1)
+        
+        # POM 적용 후 ==============================================================
+        main_page = MainPage(self.driver)
+        main_page.click_todo_list()
+        
+        todo_list_page = TodoListPage(self.driver)
+        todo_list_page.send_keys_filter_text()
+        todo_list_page.click_todo_item()
         
         time.sleep(1)
+
+        # todo kyk iOS 테스트 성공 ===================================================
+        # xpath_touch = util.get_element(aos="todo", ios="//XCUIElementTypeStaticText[@name=\"Touch\"]")
+        # util.click_element_by_xpath(driver, xpath_touch)
+        # id_touchable_view = util.get_element(aos="todo", ios="touchableView")
+        # util.click_element_by_id(driver, id_touchable_view)
+        # time.sleep(1)
         
-        # todo kyk iOS 테스트 성공
-        # driver = self.driver
-        # util.click_element(driver, xpath_touch)
-        # util.click_element(driver, id_touchable_view)
-        # time.sleep(3)
-        
-    # todo kyk 스크롤 테스트
-    # def test_scroll(self) -> None:
-    #     driver = self.driver
-        
-    #     util.click_element_by_id(driver, id_todo_list)
-        
-    #     time.sleep(3)
-    #     util.scroll(driver, util.ScrollDirection.DOWN)
-    #     util.scroll(driver, util.ScrollDirection.DOWN)
-    #     util.scroll(driver, util.ScrollDirection.UP)
-    #     util.scroll(driver, util.ScrollDirection.UP)
-        
-    #     time.sleep(1)
 
 # 파이썬 스크립트가 직접 실행될 때 해당 블록 안의 코드를 실행
 # 모듈로 사용할 때(다른 스크립트로부터 import 되었을 때)는 실행 X

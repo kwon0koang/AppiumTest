@@ -2,23 +2,25 @@
 appium_server_url = 'http://localhost:4723/wd/hub'
 
 aos_capabilities = {
-  "platformName": "Android",
-  "appium:deviceName": "Galaxy",
+  "platformName": "android",
+  "appium:deviceName": "galaxy",
+  "appium:automationName": "uiautomator2",
   "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
-  "appium:automationName": "UIAutomator2",
-  "appium:autoGrantPermissions": "true",
-  "appium:noReset": "true"
+  "appium:autoGrantPermissions": True,
+  "appium:noReset": True
 }
 ios_capabilities = {
   "platformName": "ios",
-  "appium:deviceName": "iPhone SE",
+  "appium:deviceName": "iphone se",
   "appium:platformVersion": "15.4",
-  "appium:automationName": "xcuitest",
   "appium:udid": "00008110-00167D812280401E",
+  "appium:automationName": "xcuitest",
   "appium:bundleId": "com.kykdev.IntegrationApp",
   "appium:xcodeOrgId": "kwon0koang@naver.com",
-  "appium:xcodeSigningId": "iPhone Developer"
+  "appium:xcodeSigningId": "iPhone Developer",
+  "appium:autoGrantPermissions": True,
+  "appium:noReset": True
 }
 
 # AOS
