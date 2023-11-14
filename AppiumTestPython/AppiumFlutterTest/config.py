@@ -10,18 +10,20 @@ aos_capabilities = {
   "appium:autoGrantPermissions": True,
   "appium:noReset": True
 }
+ios_bundle_id = "com.kykdev.testFlutter"
 ios_capabilities = {
   "platformName": "ios",
   "appium:deviceName": "iphone se",
   "appium:platformVersion": "15.4",
   "appium:udid": "00008110-00167D812280401E",
   "appium:automationName": "xcuitest",
-  "appium:bundleId": "com.kykdev.IntegrationApp",
+  "appium:bundleId": ios_bundle_id,
   "appium:xcodeOrgId": "kwon0koang@naver.com",
   "appium:xcodeSigningId": "iPhone Developer",
   "appium:autoGrantPermissions": True,
   "appium:noReset": True
 }
+
 
 # AOS
 # capabilities = {

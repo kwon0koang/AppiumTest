@@ -33,6 +33,10 @@ class TestAppium(unittest.TestCase):
     def tearDown(self) -> None:
         print("tearDown")
         if self.driver:
+            print("tearDown / quit")
+            # ios는 테스트 끝나도 앱 종료안되서 강제 종료
+            if (util.platform == util.Platform.IOS):
+                self.driver.terminate_app(config.ios_bundle_id)
             self.driver.quit()
 
     def test_action(self) -> None:
@@ -55,11 +59,16 @@ class TestAppium(unittest.TestCase):
         main_page.click_todo_list()
         
         todo_list_page = TodoListPage(self.driver)
+        time.sleep(2)
+        todo_list_page.scroll_down()
+        todo_list_page.scroll_down()
+        todo_list_page.scroll_up()
+        todo_list_page.scroll_up()
         todo_list_page.send_keys_filter_text()
         todo_list_page.click_todo_item()
         
         time.sleep(1)
-
+        
         # todo kyk iOS 테스트 성공 ===================================================
         # xpath_touch = util.get_element(aos="todo", ios="//XCUIElementTypeStaticText[@name=\"Touch\"]")
         # util.click_element_by_xpath(driver, xpath_touch)

@@ -67,9 +67,17 @@ def scroll(driver: webdriver.WebDriver, direction: ScrollDirection) -> None:
     action = TouchAction(driver)
     
     if direction == ScrollDirection.DOWN:
-        action.press(x=center_x, y=(height+center_y)//2).move_to(x=center_x, y=50).release().perform()
+        start_x = center_x+100
+        start_y = (height+center_y)//2
+        end_x = center_x
+        end_y = 0
+        action.press(x=start_x, y=start_y).wait(500).move_to(x=end_x, y=end_y).release().perform()
     elif direction == ScrollDirection.UP:
-        action.press(x=center_x, y=(center_y)//2).move_to(x=center_x, y=height).release().perform()
+        start_x = center_x+100
+        start_y = (center_y)//2
+        end_x = center_x
+        end_y = height
+        action.press(x=start_x, y=start_y).wait(500).move_to(x=end_x, y=end_y).release().perform()
     else:
         print("nothing")
 
