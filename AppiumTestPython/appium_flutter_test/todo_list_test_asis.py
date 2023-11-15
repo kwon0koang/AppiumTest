@@ -39,7 +39,7 @@ class TestAppium(unittest.TestCase):
                 self.driver.terminate_app(config.ios_bundle_id)
             self.driver.quit()
 
-    def test_action(self) -> None:
+    def test_todo_list(self) -> None:
         
         # id_todo_list = util.get_element(aos="Todo list", ios="todo")
         # util.click_element_by_id(self.driver, id_todo_list)
@@ -69,13 +69,6 @@ class TestAppium(unittest.TestCase):
         
         time.sleep(1)
         
-        # todo kyk iOS 테스트 성공 ===================================================
-        # xpath_touch = util.get_element(aos="todo", ios="//XCUIElementTypeStaticText[@name=\"Touch\"]")
-        # util.click_element_by_xpath(driver, xpath_touch)
-        # id_touchable_view = util.get_element(aos="todo", ios="touchableView")
-        # util.click_element_by_id(driver, id_touchable_view)
-        # time.sleep(1)
-        
 
 # 파이썬 스크립트가 직접 실행될 때 해당 블록 안의 코드를 실행
 # 모듈로 사용할 때(다른 스크립트로부터 import 되었을 때)는 실행 X
@@ -84,8 +77,6 @@ if __name__ == '__main__':
     
     # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
     arguments = sys.argv[1:]
-
-    # 전달된 파라미터 출력
     print("Received parameters:", arguments)
 
     # 파라미터를 TestAppium custom_parameter로 전달하여 테스트

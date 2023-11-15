@@ -33,26 +33,10 @@ class BaseTest(unittest.TestCase):
     def tearDown(self) -> None:
         print("tearDown")
         if self.driver:
+            print("tearDown / quit")
+            # ios는 테스트 끝나도 앱 종료안되서 강제 종료
+            if (util.platform == util.Platform.IOS):
+                self.driver.terminate_app(config.ios_bundle_id)
             self.driver.quit()
-
-# 파이썬 스크립트가 직접 실행될 때 해당 블록 안의 코드를 실행
-# 모듈로 사용할 때(다른 스크립트로부터 import 되었을 때)는 실행 X
-if __name__ == '__main__':
-    # unittest.main()
-    
-    # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
-    arguments = sys.argv[1:]
-
-    # 전달된 파라미터 출력
-    print("Received parameters:", arguments)
-
-    # 파라미터를 custom_parameter로 전달하여 테스트
-    suite = unittest.TestLoader().loadTestsFromTestCase(BaseTest)
-    for test_case in suite:
-        if isinstance(test_case, BaseTest):
-            test_case.custom_parameter = arguments[0] if arguments else None
-            print("test_case.custom_parameter:", test_case.custom_parameter)
-
-    unittest.TextTestRunner().run(suite)
 
 

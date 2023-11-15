@@ -9,6 +9,20 @@ from enum import Enum
 from appium.webdriver.common.touch_action import TouchAction
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
+import unittest
+
+def load_tests(argv, test_class) -> unittest.TestSuite:
+    # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
+    arguments = argv[1:]
+    print("Received parameters:", arguments)
+
+    # 파라미터를 custom_parameter로 전달하여 테스트
+    suite = unittest.TestLoader().loadTestsFromTestCase(test_class)
+    for test_case in suite:
+        test_case.custom_parameter = arguments[0] if arguments else ''
+        print("test_case.custom_parameter:", test_case.custom_parameter)
+    return suite    
+    
 
 class Platform(Enum):
     AOS = 1001
