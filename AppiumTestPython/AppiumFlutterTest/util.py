@@ -60,24 +60,22 @@ def scroll(driver: webdriver.WebDriver, direction: ScrollDirection) -> None:
     width = screen_size['width']
     height = screen_size['height']
 
-    # 중앙 좌표 계산
-    center_x = width // 2
-    center_y = height // 2
-    
-    action = TouchAction(driver)
+    # action = TouchAction(driver)
     
     if direction == ScrollDirection.DOWN:
-        start_x = center_x+100
-        start_y = (height+center_y)//2
-        end_x = center_x
+        start_x = width*0.2
+        start_y = height*0.8
+        end_x = width
         end_y = 0
-        action.press(x=start_x, y=start_y).wait(500).move_to(x=end_x, y=end_y).release().perform()
+        # action.press(x=start_x, y=start_y).wait(500).move_to(x=end_x, y=end_y).release().perform()
+        driver.swipe(start_x, start_y, end_x, end_y, 500)
     elif direction == ScrollDirection.UP:
-        start_x = center_x+100
-        start_y = (center_y)//2
-        end_x = center_x
+        start_x = width*0.2
+        start_y = height*0.2
+        end_x = width
         end_y = height
-        action.press(x=start_x, y=start_y).wait(500).move_to(x=end_x, y=end_y).release().perform()
+        # action.press(x=start_x, y=start_y).wait(500).move_to(x=end_x, y=end_y).release().perform()
+        driver.swipe(start_x, start_y, end_x, end_y, 500)
     else:
         print("nothing")
 
