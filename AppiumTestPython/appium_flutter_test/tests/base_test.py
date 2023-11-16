@@ -1,18 +1,8 @@
 import unittest
-import time
 from appium import webdriver
-from appium.webdriver.common.appiumby import AppiumBy
-from appium.options.android import UiAutomator2Options
-from appium.options.ios import XCUITestOptions
-from appium.webdriver.common.touch_action import TouchAction
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import config
 import util
 import sys
-from enum import Enum
-from pages.main_page import MainPage
-from pages.todo_list_page import TodoListPage
 
 class BaseTest(unittest.TestCase):
     def __init__(self, methodName='runTest', custom_parameter=None):
@@ -38,5 +28,4 @@ class BaseTest(unittest.TestCase):
             if (util.platform == util.Platform.IOS):
                 self.driver.terminate_app(config.ios_bundle_id)
             self.driver.quit()
-
 

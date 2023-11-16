@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./AppiumTestPython/appium_flutter_test/pages"
+    ]
+}
