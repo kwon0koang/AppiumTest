@@ -20,9 +20,9 @@ def load_tests(argv, test_class) -> unittest.TestSuite:
     suite = unittest.TestLoader().loadTestsFromTestCase(test_class)
     for test_case in suite:
         test_case.custom_parameter = arguments[0] if arguments else ''
-        print("test_case.custom_parameter:", test_case.custom_parameter)
+        print("custom_parameter:", test_case.custom_parameter)
+        
     return suite    
-    
 
 class Platform(Enum):
     AOS = 1001

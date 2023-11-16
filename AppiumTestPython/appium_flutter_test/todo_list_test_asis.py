@@ -83,16 +83,7 @@ if __name__ == '__main__':
         if isinstance(test_case, TestAppium):
             test_case.custom_parameter = arguments[0] if arguments else None
             print("test_case.custom_parameter:", test_case.custom_parameter)
-            
-    suite2 = unittest.TestLoader().loadTestsFromTestCase(TestAppium)
-    for test_case in suite2:
-        if isinstance(test_case, TestAppium):
-            test_case.custom_parameter = arguments[0] if arguments else None
-            print("test_case.custom_parameter:", test_case.custom_parameter)
-            
-    suites = unittest.TestSuite([suite, suite2])
-
-    unittest.TextTestRunner().run(suites)
+    unittest.TextTestRunner().run(suite)
 
 
 
