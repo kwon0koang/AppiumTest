@@ -10,17 +10,24 @@ from appium.webdriver.common.touch_action import TouchAction
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
 import unittest
+import argparse
 
 def load_tests(argv, test_class) -> unittest.TestSuite:
+    parser = argparse.ArgumentParser(description="Test Appium", add_help=True) # python3 test.py --help
+    
+    parser.add_argument("--platform", "-p", dest="platform", help="aos or ios (default : aos)")
+    parser.add_argument("--port", "-P", dest="port", help="default : 4723")
+    
     # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
-    arguments = argv[1:]
-    print("Received parameters:", arguments)
+    args = parser.parse_args(argv[1:])
+    
+    print(f"parameters >>>>>>> platform : {args.platform} / port : {args.port}")
 
-    # 파라미터를 custom_parameter로 전달하여 테스트
+    # 파라미터 전달하여 테스트
     suite = unittest.TestLoader().loadTestsFromTestCase(test_class)
     for test_case in suite:
-        test_case.custom_parameter = arguments[0] if arguments else ''
-        print("custom_parameter:", test_case.custom_parameter)
+        test_case.platform = args.platform
+        test_case.port = args.port
         
     return suite    
 

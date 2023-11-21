@@ -1,5 +1,7 @@
-
-appium_server_url = 'http://localhost:4723/wd/hub'
+appium_server_host = 'http://localhost'
+appium_server_base_path = '/wd/hub'
+appium_server_default_port = '4723'
+appium_server_url = f'{appium_server_host}:{appium_server_default_port}{appium_server_base_path}'
 
 aos_capabilities = {
   "platformName": "android",
@@ -7,8 +9,8 @@ aos_capabilities = {
   "appium:automationName": "uiautomator2",
   "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
-  "appium:autoGrantPermissions": True,
-  "appium:noReset": True
+  "appium:autoGrantPermissions": "true",
+  "appium:noReset": "true"
 }
 ios_bundle_id = "com.kykdev.testFlutter"
 ios_capabilities = {
@@ -20,10 +22,9 @@ ios_capabilities = {
   "appium:bundleId": ios_bundle_id,
   "appium:xcodeOrgId": "kwon0koang@naver.com",
   "appium:xcodeSigningId": "iPhone Developer",
-  "appium:autoGrantPermissions": True,
-  "appium:noReset": True
+  "appium:autoGrantPermissions": "true",
+  "appium:noReset": "true"
 }
-
 
 # AOS
 # capabilities = {
