@@ -100,6 +100,15 @@ def scroll(driver: webdriver.WebDriver, direction: ScrollDirection) -> None:
     else:
         print("nothing")
 
-# todo kyk 스크롤
-def scroll_down_to():
-    ''
+# 스크롤
+def scroll_down_to(driver: webdriver.WebDriver, element_id: str):
+    while True:
+        try:
+            driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value=element_id)
+            break  # 루프 종료
+        except Exception:
+            # 스크롤
+            scroll(driver=driver, direction=ScrollDirection.DOWN)
+
+
+    
