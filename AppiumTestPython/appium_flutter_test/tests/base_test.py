@@ -28,5 +28,8 @@ class BaseTest(unittest.TestCase):
         print("tearDown")
         if self.driver:
             print("tearDown / quit")
+            # ios는 noReset true 하면 테스트 끝나도 앱 종료안되서 강제 종료
+            if (util.platform == util.Platform.IOS):
+                self.driver.terminate_app(config.ios_bundle_id)
             self.driver.quit()
 

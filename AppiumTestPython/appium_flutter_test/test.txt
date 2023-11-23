@@ -56,16 +56,9 @@ self.driver.hide_keyboard()
 
 ===========================
 
-위에 있는 리팩토링 전과 후 소스를 학습해서, 아래 소스를 리팩토링해줘
+위에 있는 리팩토링 전과 후 소스를 학습해서, 아래 소스를 리팩토링해줘. 함수는 추가하지마.
 
 ===========================
 
-el2 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Todo list")
-el2.click()
-el3 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
-el3.click()
-el3.send_keys("veritatis pariatur delectus")
-driver.press_keycode(4, undefined, undefined);
-el4 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="2 / 27 / true / veritatis pariatur delectus")
+el4 = driver.find_element(by=AppiumBy.XPATH, value="//android.widget.ScrollView/android.widget.ImageView[2]")
 el4.click()
-

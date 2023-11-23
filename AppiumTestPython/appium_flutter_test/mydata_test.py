@@ -39,31 +39,60 @@ class TestAppium(unittest.TestCase):
                 self.driver.terminate_app(config.ios_bundle_id)
             self.driver.quit()
 
-    def test_todo_list(self) -> None:
+    def test_mydata(self) -> None:
         
-        # id_todo_list = util.get_element(aos="Todo list", ios="todo")
-        # util.click_element_by_id(self.driver, id_todo_list)
+        # el4
+        xpath_scroll_view = util.get_element(aos="//android.widget.ScrollView/android.widget.ImageView[3]", ios="")
+        util.click_element_by_xpath(self.driver, xpath_scroll_view)
+        # el5
+        id_add_asset = util.get_element(aos="자산 추가 연결하기", ios="")
+        util.click_element_by_id(self.driver, id_add_asset)
+        # el6
+        id_kb_bank = util.get_element(aos="KB국민은행", ios="")
+        util.click_element_by_id(self.driver, id_kb_bank)
+        # el7
+        id_load_finance = util.get_element(aos="1\n개 금융사 불러오기", ios="")
+        util.click_element_by_id(self.driver, id_load_finance)
+        # el8
+        id_cert = util.get_element(aos="공동인증서", ios="")
+        util.click_element_by_id(self.driver, id_cert)
+        # el9
+        id_agree_all = util.get_element(aos="(필수) 모두 동의합니다", ios="")
+        util.click_element_by_id(self.driver, id_agree_all)
+        # el10
+        id_agree = util.get_element(aos="모두 동의하기", ios="")
+        util.click_element_by_id(self.driver, id_agree)
         
-        # xpath_filter_text = util.get_element(aos="//android.widget.EditText", ios="todo")
-        # util.click_element_by_xpath(self.driver, xpath_filter_text)
-        # util.send_keys_element_by_xpath(self.driver, xpath_filter_text, "veritatis pariatur delectus")
-        # self.driver.hide_keyboard()
+        time.sleep(1)
+        util.scroll(self.driver, util.ScrollDirection.DOWN)
+        util.scroll(self.driver, util.ScrollDirection.DOWN)
         
-        # id_todo_item = util.get_element(aos="2 / 27 / true / veritatis pariatur delectus", ios="todo")
-        # util.click_element_by_id(self.driver, id_todo_item)
+        util.click_element_by_id(self.driver, id_agree)
         
-        # time.sleep(0.5)
+        # el12
+        id_certificate_info = util.get_element(aos="증권/보험용 | SignKorea CA4 | 2024.06.14\n권영광-21342071\n165357544", ios="")
+        util.click_element_by_id(self.driver, id_certificate_info)
         
-        # POM 적용 후 ==============================================================
-        main_page = MainPage(self.driver)
-        main_page.click_todo_list()
+        # todo kyk 공동인증 비번 입력
         
-        todo_list_page = TodoListPage(self.driver)
-        time.sleep(2)
-        todo_list_page.scroll_down()
-        todo_list_page.scroll_up()
-        todo_list_page.send_keys_filter_text()
-        todo_list_page.click_todo_item()
+        # el13
+        id_connect_one = util.get_element(aos="총 1건 연결하기", ios="")
+        util.click_element_by_id(self.driver, id_connect_one)
+        
+        time.sleep(1)
+        util.scroll(self.driver, util.ScrollDirection.DOWN)
+        util.scroll(self.driver, util.ScrollDirection.DOWN)
+        
+        # el14
+        id_agree_connect = util.get_element(aos="모두 동의하기", ios="")
+        util.click_element_by_id(self.driver, id_agree_connect)
+        # el15
+        id_like = util.get_element(aos="좋아요", ios="")
+        util.click_element_by_id(self.driver, id_like)
+        # el16
+        util.click_element_by_id(self.driver, id_certificate_info)
+        
+        # todo kyk 공동인증 비번 입력
         
         time.sleep(0.5)
         

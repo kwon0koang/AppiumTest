@@ -46,10 +46,10 @@ def get_element(aos: str, ios: str):
 
 # 클릭할 수 있을 때까지 기다림
 def wait_element_by_id(driver: webdriver.WebDriver, id: str):
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 30)
     wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id)))
 def wait_element_by_xpath(driver: webdriver.WebDriver, xpath: str):
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 30)
     wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath)))
 
 # 클릭할 수 있을 때 element 반환
