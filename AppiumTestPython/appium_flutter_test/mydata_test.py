@@ -39,27 +39,61 @@ class TestAppium(unittest.TestCase):
                 self.driver.terminate_app(config.ios_bundle_id)
             self.driver.quit()
 
+
     def test_mydata(self) -> None:
         
-        # el4
-        xpath_scroll_view = util.get_element(aos="//android.widget.ScrollView/android.widget.ImageView[3]", ios="")
+        def sign() -> None:
+            xpath_signkorea_ca5 = util.get_element(aos="//*[contains(@content-desc,\"MyData_User2\")]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_signkorea_ca5)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[1]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[11]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[2]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[12]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[3]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[13]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[4]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            xpath_button = util.get_element(aos=f"(//android.widget.ImageView[@content-desc=\"버튼\"])[14]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button)
+            id_special_char_change = util.get_element(aos="특수문자변경", ios="")
+            util.click_element_by_id(self.driver, id_special_char_change)
+            xpath_button_1 = util.get_element(aos="(//android.widget.ImageView[@content-desc=\"버튼\"])[1]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_button_1)
+            util.click_element_by_xpath(self.driver, xpath_button_1)
+            xpath_done_button = util.get_element(aos="//android.widget.ImageButton[@content-desc=\"입력완료\"]", ios="")
+            util.click_element_by_xpath(self.driver, xpath_done_button)
+        
+        time.sleep(5)
+        
+        xpath_scroll_view = util.get_element(aos="//android.widget.ScrollView/android.widget.ImageView[2]", ios="")
         util.click_element_by_xpath(self.driver, xpath_scroll_view)
-        # el5
+        
+        time.sleep(5)
+        
         id_add_asset = util.get_element(aos="자산 추가 연결하기", ios="")
         util.click_element_by_id(self.driver, id_add_asset)
-        # el6
-        id_kb_bank = util.get_element(aos="KB국민은행", ios="")
-        util.click_element_by_id(self.driver, id_kb_bank)
-        # el7
-        id_load_finance = util.get_element(aos="1\n개 금융사 불러오기", ios="")
-        util.click_element_by_id(self.driver, id_load_finance)
-        # el8
+        
+        xpath_edit_text_2 = util.get_element(aos="//android.widget.EditText", ios="")
+        util.click_element_by_xpath(self.driver, xpath_edit_text_2)
+        util.send_keys_element_by_xpath(self.driver, xpath_edit_text_2, "한화투자증권")
+        self.driver.hide_keyboard()
+
+        id_hanwha_investment = util.get_element(aos="한화투자증권", ios="")
+        util.click_element_by_id(self.driver, id_hanwha_investment)
+        xpath_select_finance = util.get_element(aos="//*[contains(@content-desc,\"개 금융사 선택\")]", ios="")
+        util.click_element_by_xpath(self.driver, xpath_select_finance)
+        xpath_load_finance = util.get_element(aos="//*[contains(@content-desc,\"개 금융사 불러오기\")]", ios="")
+        util.click_element_by_xpath(self.driver, xpath_load_finance)
         id_cert = util.get_element(aos="공동인증서", ios="")
         util.click_element_by_id(self.driver, id_cert)
-        # el9
         id_agree_all = util.get_element(aos="(필수) 모두 동의합니다", ios="")
         util.click_element_by_id(self.driver, id_agree_all)
-        # el10
         id_agree = util.get_element(aos="모두 동의하기", ios="")
         util.click_element_by_id(self.driver, id_agree)
         
@@ -69,33 +103,24 @@ class TestAppium(unittest.TestCase):
         
         util.click_element_by_id(self.driver, id_agree)
         
-        # el12
-        id_certificate_info = util.get_element(aos="증권/보험용 | SignKorea CA4 | 2024.06.14\n권영광-21342071\n165357544", ios="")
-        util.click_element_by_id(self.driver, id_certificate_info)
-        
-        # todo kyk 공동인증 비번 입력
-        
-        # el13
-        id_connect_one = util.get_element(aos="총 1건 연결하기", ios="")
-        util.click_element_by_id(self.driver, id_connect_one)
+        xpath_connect_one = util.get_element(aos="//*[contains(@content-desc,\"건 연결하기\")]", ios="")
+        util.click_element_by_xpath(self.driver, xpath_connect_one)
         
         time.sleep(1)
         util.scroll(self.driver, util.ScrollDirection.DOWN)
         util.scroll(self.driver, util.ScrollDirection.DOWN)
         
-        # el14
         id_agree_connect = util.get_element(aos="모두 동의하기", ios="")
         util.click_element_by_id(self.driver, id_agree_connect)
-        # el15
         id_like = util.get_element(aos="좋아요", ios="")
         util.click_element_by_id(self.driver, id_like)
-        # el16
-        util.click_element_by_id(self.driver, id_certificate_info)
         
-        # todo kyk 공동인증 비번 입력
+        sign()
         
-        time.sleep(0.5)
+        xpath_hanwha = util.get_element(aos="//*[contains(@content-desc,\"한화투자증권\")]", ios="")
+        util.click_element_by_xpath(self.driver, xpath_hanwha)
         
+        time.sleep(1)
 
 # 파이썬 스크립트가 직접 실행될 때 해당 블록 안의 코드를 실행
 # 모듈로 사용할 때(다른 스크립트로부터 import 되었을 때)는 실행 X

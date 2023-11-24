@@ -56,9 +56,9 @@ self.driver.hide_keyboard()
 
 ===========================
 
-위에 있는 리팩토링 전과 후 소스를 학습해서, 아래 소스를 리팩토링해줘. 함수는 추가하지마.
+위에 있는 리팩토링 전과 후 소스를 학습해서, 아래 소스를 리팩토링해줘. 함수 추가하지마. 주석 추가하지마.
 
 ===========================
 
-el4 = driver.find_element(by=AppiumBy.XPATH, value="//android.widget.ScrollView/android.widget.ImageView[2]")
-el4.click()
+el2 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
+el2.click()

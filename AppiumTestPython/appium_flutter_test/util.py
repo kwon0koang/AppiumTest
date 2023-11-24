@@ -12,6 +12,10 @@ from appium.options.ios import XCUITestOptions
 import unittest
 import argparse
 
+# 특정 단어 포함하는 xpath 가져오기
+# //*[contains(@content-desc,"text you want to find")]
+# You can change @label for @name or @value
+
 def load_tests(argv, test_class) -> unittest.TestSuite:
     parser = argparse.ArgumentParser(description="Test Appium", add_help=True) # python3 test.py --help
     
