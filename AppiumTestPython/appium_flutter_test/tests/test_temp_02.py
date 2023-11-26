@@ -1,7 +1,7 @@
 import time
 import unittest
-from pages.main_page import MainPage
-from base_test import BaseTest
+from pages.page_main import MainPage
+from tests.test_base import BaseTest
 
 class Temp02Test(BaseTest):
 

@@ -1,5 +1,5 @@
 import util
-from pages.base_page import BasePage
+from pages.page_base import BasePage
 
 
 class MainPage(BasePage):

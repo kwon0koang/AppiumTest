@@ -1,8 +1,8 @@
 import time
-from pages.main_page import MainPage
-from pages.todo_list_page import TodoListPage
+from pages.page_main import MainPage
+from pages.page_todo_list import TodoListPage
 import util
-from base_test import BaseTest
+from tests.test_base import BaseTest
 import sys
 import unittest
 

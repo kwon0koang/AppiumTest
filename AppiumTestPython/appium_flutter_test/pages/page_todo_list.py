@@ -1,8 +1,6 @@
 import util
-from pages.base_page import BasePage
-from appium import webdriver
+from pages.page_base import BasePage
 from appium.webdriver import webdriver
-
 
 class TodoListPage(BasePage):
 

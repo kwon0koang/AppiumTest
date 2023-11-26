@@ -5,9 +5,9 @@ import util
 import HtmlTestRunner
 import sys
 import unittest
-from todo_list_test import TodoListTest
-from temp_01_test import Temp01Test
-from temp_02_test import Temp02Test
+from tests.test_todo_list import TodoListTest
+from tests.test_temp_01 import Temp01Test
+from tests.test_temp_02 import Temp02Test
 
 # 파이썬 스크립트가 직접 실행될 때 해당 블록 안의 코드를 실행
 # 모듈로 사용할 때(다른 스크립트로부터 import 되었을 때)는 실행 X

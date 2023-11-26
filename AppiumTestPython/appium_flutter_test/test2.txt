@@ -1,0 +1,15 @@
+
+from appium import webdriver
+import config
+import util
+from appium.webdriver.common.appiumby import AppiumBy
+
+driver = webdriver.Remote(command_executor=config.appium_server_url(), options=util.get_capabilities_options())
+
+el_todo_list = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Todo list")
+el_todo_list.click()
+
+====================================================================================================================================
+
+
+

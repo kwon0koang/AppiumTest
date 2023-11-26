@@ -1,13 +1,16 @@
 appium_server_host = 'http://localhost'
-appium_server_base_path = '/wd/hub'
-appium_server_default_port = '4723'
-appium_server_url = f'{appium_server_host}:{appium_server_default_port}{appium_server_base_path}'
+appium_server_port = '4723'
+# appium_server_base_path = '/wd/hub'
+def appium_server_url():
+  # return f'{appium_server_host}:{appium_server_default_port}{appium_server_base_path}'
+  return f'{appium_server_host}:{appium_server_port}'
 
+aos_app_package = "com.example.test_flutter"
 aos_capabilities = {
   "platformName": "android",
   "appium:deviceName": "galaxy",
   "appium:automationName": "uiautomator2",
-  "appium:appPackage": "com.example.test_flutter",
+  "appium:appPackage": aos_app_package,
   "appium:appActivity": ".MainActivity",
   "appium:autoGrantPermissions": "true",
   "appium:noReset": "true"
