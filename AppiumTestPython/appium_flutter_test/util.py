@@ -70,7 +70,7 @@ def click_element_by_id(driver: webdriver.WebDriver, id: str):
 def click_element_by_xpath(driver: webdriver.WebDriver, xpath: str):
     find_element_by_xpath(driver, xpath).click()
     
-# 클릭할 수 있을 때 element 클릭
+# 클릭할 수 있을 때 element 키 입력
 def send_keys_element_by_id(driver: webdriver.WebDriver, id: str, value: str):
     find_element_by_id(driver, id).send_keys(value)
 def send_keys_element_by_xpath(driver: webdriver.WebDriver, xpath: str, value: str):

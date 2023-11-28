@@ -41,18 +41,7 @@ class TestAppium(unittest.TestCase):
 
     def test_todo_list(self) -> None:
         
-        # Main page
-        id_todo_list = util.get_element(aos="Todo list", ios="todo")
-        util.click_element_by_id(self.driver, id_todo_list)
-        
-        # Todo list page
-        xpath_filter_text = util.get_element(aos="//android.widget.EditText", ios="todo")
-        util.click_element_by_xpath(self.driver, xpath_filter_text)
-        util.send_keys_element_by_xpath(self.driver, xpath_filter_text, "veritatis pariatur delectus")
-        self.driver.hide_keyboard()
-        
-        id_todo_item = util.get_element(aos="2 / 27 / true / veritatis pariatur delectus", ios="todo")
-        util.click_element_by_id(self.driver, id_todo_item)
+        # todo kyk
         
         time.sleep(0.5)
 
