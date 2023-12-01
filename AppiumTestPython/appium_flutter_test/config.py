@@ -7,7 +7,8 @@ def appium_server_url():
 
 aos_capabilities = {
   "platformName": "android",
-  "appium:deviceName": "galaxy",
+  "appium:deviceName": "galaxy note 10+",
+  "appium:udid": "R3CMA0F73PL",
   "appium:automationName": "uiautomator2",
   "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
