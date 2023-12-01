@@ -39,10 +39,7 @@ class TestAppium(unittest.TestCase):
         if self.driver:
             print("tearDown / quit")
             # noReset true 하면 테스트 끝나도 앱 종료안되서 강제 종료
-            if (util.platform == util.Platform.IOS):
-                self.driver.terminate_app(config.ios_bundle_id)
-            else:
-                self.driver.terminate_app(config.aos_app_package)
+            self.driver.terminate_app(util.get_app_package())
             self.driver.quit()
 
     def test_todo_list(self) -> None:

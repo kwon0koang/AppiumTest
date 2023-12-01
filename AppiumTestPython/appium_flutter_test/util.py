@@ -40,6 +40,12 @@ class Platform(Enum):
     IOS = 1002
 platform = Platform.AOS
 
+def get_app_package():
+    if (platform == Platform.AOS):
+        return config.aos_capabilities['appium:appPackage']
+    else:
+        return config.ios_capabilities['appium:bundleId']
+
 def get_capabilities_options():
     if platform == Platform.AOS:
         return UiAutomator2Options().load_capabilities(config.aos_capabilities)

@@ -33,10 +33,7 @@ class TestAppium(unittest.TestCase):
 
     def tearDown(self) -> None:
         if self.driver:
-            if (util.platform == util.Platform.IOS):
-                self.driver.terminate_app(config.ios_bundle_id)
-            else:
-                self.driver.terminate_app(config.aos_app_package)
+            self.driver.terminate_app(util.get_app_package())
             self.driver.quit()
 
     def test_todo_list(self) -> None:

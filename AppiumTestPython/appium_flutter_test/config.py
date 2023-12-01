@@ -5,24 +5,22 @@ def appium_server_url():
   # return f'{appium_server_host}:{appium_server_default_port}{appium_server_base_path}'
   return f'{appium_server_host}:{appium_server_port}'
 
-aos_app_package = "com.example.test_flutter"
 aos_capabilities = {
   "platformName": "android",
   "appium:deviceName": "galaxy",
   "appium:automationName": "uiautomator2",
-  "appium:appPackage": aos_app_package,
+  "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
   "appium:autoGrantPermissions": "true",
   "appium:noReset": "true"
 }
-ios_bundle_id = "com.kykdev.testFlutter"
 ios_capabilities = {
   "platformName": "ios",
   "appium:deviceName": "iphone se",
   "appium:platformVersion": "15.4",
   "appium:udid": "00008110-00167D812280401E",
   "appium:automationName": "xcuitest",
-  "appium:bundleId": ios_bundle_id,
+  "appium:bundleId": "com.kykdev.testFlutter",
   "appium:xcodeOrgId": "kwon0koang@naver.com",
   "appium:xcodeSigningId": "iPhone Developer",
   "appium:autoGrantPermissions": "true",
