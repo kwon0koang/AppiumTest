@@ -28,6 +28,64 @@ ios_capabilities = {
   "appium:noReset": "true"
 }
 
+device = 'aos_galaxy_note_10_plus'
+capabilities = {
+  "aos_galaxy_note_10_plus" : {
+    "platformName": "android",
+    "appium:deviceName": "aos_galaxy_note_10_plus",
+    "appium:udid": "R3CMA0F73PL",
+    "appium:automationName": "uiautomator2",
+    "appium:appPackage": "com.example.test_flutter",
+    "appium:appActivity": ".MainActivity",
+    "appium:autoGrantPermissions": "true",
+    "appium:noReset": "true"
+  },
+  "aos_lg_q_51" : {
+    "platformName": "android",
+    "appium:deviceName": "aos_lg_q_51",
+    "appium:udid": "LMQ510NKFSO5L9SBAL",
+    "appium:automationName": "uiautomator2",
+    "appium:appPackage": "com.example.test_flutter",
+    "appium:appActivity": ".MainActivity",
+    "appium:autoGrantPermissions": "true",
+    "appium:noReset": "true"
+  },
+  "ios_iphone_se_2022" : {
+    "platformName": "ios",
+    "appium:deviceName": "ios_iphone_se_2022",
+    "appium:platformVersion": "15.4",
+    "appium:udid": "00008110-00167D812280401E",
+    "appium:automationName": "xcuitest",
+    "appium:bundleId": "com.kykdev.testFlutter",
+    "appium:xcodeOrgId": "kwon0koang@naver.com",
+    "appium:xcodeSigningId": "iPhone Developer",
+    "appium:autoGrantPermissions": "true",
+    "appium:noReset": "true"
+  },
+}
+ports = {
+  "aos_galaxy_note_10_plus" : 4723,
+  "aos_galaxy_note_10_plus" : 4724,
+  "ios_iphone_se_2022" : 4725,
+}
+#  = {
+#   "platformName": "android",
+#   "appium:deviceName": "galaxy note 10+",
+#   "appium:udid": "R3CMA0F73PL",
+#   "appium:automationName": "uiautomator2",
+#   "appium:appPackage": "com.example.test_flutter",
+#   "appium:appActivity": ".MainActivity",
+#   "appium:autoGrantPermissions": "true",
+#   "appium:noReset": "true"
+# }
+
+
+
+
+
+
+
+
 # AOS
 # capabilities = {
 #   "platformName": "Android",

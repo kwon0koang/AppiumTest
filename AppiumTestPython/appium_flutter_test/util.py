@@ -21,17 +21,19 @@ def load_tests(argv, test_class) -> unittest.TestSuite:
     
     parser.add_argument("--platform", "-p", dest="platform", help="aos or ios (default : aos)")
     parser.add_argument("--port", "-P", dest="port", help="default : 4723")
+    parser.add_argument("--device", "-d", dest="device", help="device")
     
     # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
     args = parser.parse_args(argv[1:])
     
-    print(f"parameters >>>>>>> platform : {args.platform} / port : {args.port}")
+    print(f"parameters >>>>>>> platform : {args.platform} / port : {args.port} / device : {args.device}")
 
     # 파라미터 전달하여 테스트
     suite = unittest.TestLoader().loadTestsFromTestCase(test_class)
     for test_case in suite:
         test_case.platform = args.platform
         test_case.port = args.port
+        test_case.device = args.device
         
     return suite    
 
@@ -40,17 +42,23 @@ class Platform(Enum):
     IOS = 1002
 platform = Platform.AOS
 
+def get_capabilites():
+    return config.capabilities[config.device]
+
+def get_port() -> int: 
+    return config.ports[config.device]
+
 def get_app_package():
     if (platform == Platform.AOS):
-        return config.aos_capabilities['appium:appPackage']
+        return get_capabilites()['appium:appPackage']
     else:
-        return config.ios_capabilities['appium:bundleId']
+        return get_capabilites()['appium:bundleId']
 
 def get_capabilities_options():
     if platform == Platform.AOS:
-        return UiAutomator2Options().load_capabilities(config.aos_capabilities)
+        return UiAutomator2Options().load_capabilities(get_capabilites())
     else:
-        return XCUITestOptions().load_capabilities(config.ios_capabilities)
+        return XCUITestOptions().load_capabilities(get_capabilites())
 def get_element(aos: str, ios: str):
     return aos if platform == Platform.AOS else ios
 
