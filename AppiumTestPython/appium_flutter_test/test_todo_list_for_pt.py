@@ -48,14 +48,15 @@ class TestAppium(unittest.TestCase):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Test Appium", add_help=True)
     
-    parser.add_argument("--device", "-d", dest="device", help="test device")
+    devices = " / ".join(config.capabilities.keys())
+    parser.add_argument("--device", "-d", dest="device", help=f"Available devices >>>>>>> {devices}")
     
-    # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
+    # 1번째는 스크립트 이름. 실제 파라미터는 2번째부터
     args = parser.parse_args(sys.argv[1:])
     
     print(f"parameters >>>>>>> device : {args.device}")
 
-    # 파라미터 전달하여 테스트
+    # 파라미터 전달
     suite = unittest.TestLoader().loadTestsFromTestCase(TestAppium)
     for test_case in suite:
         test_case.device = args.device

@@ -6,8 +6,8 @@ from appium.options.android import UiAutomator2Options
 # 테스트 앱 열기
 capabilities = UiAutomator2Options().load_capabilities({
   "platformName": "android",
-  "appium:deviceName": "aos_galaxy_s_20_5g",
-  "appium:udid": "R3CN30JZ89F",
+  "appium:deviceName": "aos_galaxy_note_10_plus",
+  "appium:udid": "R3CMA0F73PL",
   "appium:automationName": "uiautomator2",
   "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
