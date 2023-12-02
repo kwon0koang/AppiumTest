@@ -29,7 +29,7 @@ class MyDataTest(unittest.TestCase):
         # 드라이버 셋팅
         appium_server_url = f"{config.appium_server_host}:{util.get_port()}"
         capabilities_options = util.get_capabilities_options()
-        print(f"setUp / device : {config.device} / appium_server_url : {appium_server_url} / capabilities_options : {capabilities_options}")
+        print(f"setUp / device : {config.device} / appium_server_url : {appium_server_url}")
         self.driver = webdriver.Remote(command_executor=appium_server_url, options=capabilities_options)
 
     def tearDown(self) -> None:
