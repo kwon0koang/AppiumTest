@@ -1,34 +1,14 @@
 appium_server_host = 'http://localhost'
-appium_server_port = '4723'
+# appium_server_port = '4723'
 # appium_server_base_path = '/wd/hub'
-def appium_server_url():
+# def appium_server_url():
   # return f'{appium_server_host}:{appium_server_default_port}{appium_server_base_path}'
-  return f'{appium_server_host}:{appium_server_port}'
+  # return f'{appium_server_host}:{appium_server_port}'
 
-aos_capabilities = {
-  "platformName": "android",
-  "appium:deviceName": "galaxy note 10+",
-  "appium:udid": "R3CMA0F73PL",
-  "appium:automationName": "uiautomator2",
-  "appium:appPackage": "com.example.test_flutter",
-  "appium:appActivity": ".MainActivity",
-  "appium:autoGrantPermissions": "true",
-  "appium:noReset": "true"
-}
-ios_capabilities = {
-  "platformName": "ios",
-  "appium:deviceName": "iphone se",
-  "appium:platformVersion": "15.4",
-  "appium:udid": "00008110-00167D812280401E",
-  "appium:automationName": "xcuitest",
-  "appium:bundleId": "com.kykdev.testFlutter",
-  "appium:xcodeOrgId": "kwon0koang@naver.com",
-  "appium:xcodeSigningId": "iPhone Developer",
-  "appium:autoGrantPermissions": "true",
-  "appium:noReset": "true"
-}
-
+# 테스트할 디바이스
+# 테스트 파이썬 스크립트 실행 시 전달받도록 함
 device = 'aos_galaxy_note_10_plus'
+
 capabilities = {
   "aos_galaxy_note_10_plus" : {
     "platformName": "android",
@@ -50,6 +30,16 @@ capabilities = {
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
+  "aos_galaxy_s_20_5g" : {
+    "platformName": "android",
+    "appium:deviceName": "aos_galaxy_s_20_5g",
+    "appium:udid": "R3CN30JZ89F",
+    "appium:automationName": "uiautomator2",
+    "appium:appPackage": "com.example.test_flutter",
+    "appium:appActivity": ".MainActivity",
+    "appium:autoGrantPermissions": "true",
+    "appium:noReset": "true"
+  },
   "ios_iphone_se_2022" : {
     "platformName": "ios",
     "appium:deviceName": "ios_iphone_se_2022",
@@ -65,19 +55,10 @@ capabilities = {
 }
 ports = {
   "aos_galaxy_note_10_plus" : 4723,
-  "aos_galaxy_note_10_plus" : 4724,
-  "ios_iphone_se_2022" : 4725,
+  "aos_lg_q_51" : 4724,
+  "aos_galaxy_s_20_5g" : 4725,
+  "ios_iphone_se_2022" : 4726,
 }
-#  = {
-#   "platformName": "android",
-#   "appium:deviceName": "galaxy note 10+",
-#   "appium:udid": "R3CMA0F73PL",
-#   "appium:automationName": "uiautomator2",
-#   "appium:appPackage": "com.example.test_flutter",
-#   "appium:appActivity": ".MainActivity",
-#   "appium:autoGrantPermissions": "true",
-#   "appium:noReset": "true"
-# }
 
 
 

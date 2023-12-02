@@ -16,31 +16,29 @@ import argparse
 # //*[contains(@content-desc,"text you want to find")]
 # You can change @label for @name or @value
 
-def load_tests(argv, test_class) -> unittest.TestSuite:
+# init test ======================================================================================================================================================================================================
+
+# 스크립트 파라미터 파싱
+def get_args(argv) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Test Appium", add_help=True) # python3 test.py --help
     
-    parser.add_argument("--platform", "-p", dest="platform", help="aos or ios (default : aos)")
-    parser.add_argument("--port", "-P", dest="port", help="default : 4723")
-    parser.add_argument("--device", "-d", dest="device", help="device")
+    parser.add_argument("--device", "-d", dest="device", help="test device")
     
     # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
     args = parser.parse_args(argv[1:])
-    
-    print(f"parameters >>>>>>> platform : {args.platform} / port : {args.port} / device : {args.device}")
+    return args
 
+# 테스트 슈트 로드
+def load_tests(args: argparse.Namespace, test_class) -> unittest.TestSuite:
+    
     # 파라미터 전달하여 테스트
     suite = unittest.TestLoader().loadTestsFromTestCase(test_class)
     for test_case in suite:
-        test_case.platform = args.platform
-        test_case.port = args.port
         test_case.device = args.device
         
     return suite    
 
-class Platform(Enum):
-    AOS = 1001
-    IOS = 1002
-platform = Platform.AOS
+# info ======================================================================================================================================================================================================
 
 def get_capabilites():
     return config.capabilities[config.device]
@@ -48,19 +46,31 @@ def get_capabilites():
 def get_port() -> int: 
     return config.ports[config.device]
 
-def get_app_package():
-    if (platform == Platform.AOS):
-        return get_capabilites()['appium:appPackage']
+class Platform(Enum):
+    AOS = 1001
+    IOS = 1002
+def get_platform() -> Platform:
+    if (get_capabilites()['platformName'] == 'ios'):
+        return Platform.IOS
     else:
-        return get_capabilites()['appium:bundleId']
+        return Platform.AOS
 
 def get_capabilities_options():
-    if platform == Platform.AOS:
+    if get_platform() == Platform.AOS:
         return UiAutomator2Options().load_capabilities(get_capabilites())
     else:
         return XCUITestOptions().load_capabilities(get_capabilites())
+    
+def get_app_package():
+    if (get_platform() == Platform.AOS):
+        return get_capabilites()['appium:appPackage']
+    else:
+        return get_capabilites()['appium:bundleId']
+    
+# action ======================================================================================================================================================================================================
+
 def get_element(aos: str, ios: str):
-    return aos if platform == Platform.AOS else ios
+    return aos if get_platform() == Platform.AOS else ios
 
 # 클릭할 수 있을 때까지 기다림
 def wait_element_by_id(driver: webdriver.WebDriver, id: str):

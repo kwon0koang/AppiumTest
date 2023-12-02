@@ -16,23 +16,24 @@ from pages.page_todo_list import TodoListPage
 import argparse
 
 class TestAppium(unittest.TestCase):
-    def __init__(self, methodName='runTest', platform=None, port=None):
+    def __init__(self, methodName='runTest', device=None):
         super().__init__(methodName)
-        self.platform = platform
-        self.port = port
+        self.device = device
 
     def setUp(self) -> None:
-        # 플랫폼 셋팅
-        util.platform = util.Platform.IOS if self.platform == "ios" else util.Platform.AOS
-        
-        # 포트 셋팅
-        config.appium_server_port = config.appium_server_port if self.port is None else self.port
+        # 디바이스 셋팅
+        if self.device:
+            config.device = self.device
         
         # 드라이버 셋팅
-        self.driver = webdriver.Remote(command_executor=config.appium_server_url(), options=util.get_capabilities_options())
+        appium_server_url = f"{config.appium_server_host}:{util.get_port()}"
+        capabilities_options = util.get_capabilities_options()
+        print(f"setUp / device : {config.device} / appium_server_url : {appium_server_url} / capabilities_options : {capabilities_options}")
+        self.driver = webdriver.Remote(command_executor=appium_server_url, options=capabilities_options)
 
     def tearDown(self) -> None:
         if self.driver:
+            # noReset true 하면 테스트 끝나도 앱 종료안되서 강제 종료
             self.driver.terminate_app(util.get_app_package())
             self.driver.quit()
 
@@ -47,19 +48,17 @@ class TestAppium(unittest.TestCase):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Test Appium", add_help=True)
     
-    parser.add_argument("--platform", "-p", dest="platform", help="aos or ios (default : aos)")
-    parser.add_argument("--port", "-P", dest="port", help="default : 4723")
+    parser.add_argument("--device", "-d", dest="device", help="test device")
     
     # 1번째는 스크립트의 이름. 실제 파라미터는 2번째부터
     args = parser.parse_args(sys.argv[1:])
     
-    print(f"parameters >>>>>>> platform : {args.platform} / port : {args.port}")
+    print(f"parameters >>>>>>> device : {args.device}")
 
     # 파라미터 전달하여 테스트
     suite = unittest.TestLoader().loadTestsFromTestCase(TestAppium)
     for test_case in suite:
-        test_case.platform = args.platform
-        test_case.port = args.port
+        test_case.device = args.device
             
     unittest.TextTestRunner().run(suite)
 

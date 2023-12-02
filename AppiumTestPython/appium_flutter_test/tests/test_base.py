@@ -4,23 +4,21 @@ import config
 import util
 
 class BaseTest(unittest.TestCase):
-    def __init__(self, methodName='runTest', platform=None, port=None):
-        print("__init__")
+    def __init__(self, methodName='runTest', device=None):
+        print(f"__init__")
         super().__init__(methodName)
-        self.platform = platform
-        self.port = port
+        self.device = device
 
     def setUp(self) -> None:
-        # 플랫폼 셋팅
-        util.platform = util.Platform.IOS if self.platform == "ios" else util.Platform.AOS
-        
-        # 포트 셋팅
-        config.appium_server_port = config.appium_server_port if self.port is None else self.port
-        
-        print(f"setUp / platform : {util.platform} / url : {config.appium_server_url()}")
+        # 디바이스 셋팅
+        if self.device:
+            config.device = self.device
         
         # 드라이버 셋팅
-        self.driver = webdriver.Remote(command_executor=config.appium_server_url(), options=util.get_capabilities_options())
+        appium_server_url = f"{config.appium_server_host}:{util.get_port()}"
+        capabilities_options = util.get_capabilities_options()
+        print(f"setUp / device : {config.device} / appium_server_url : {appium_server_url} / capabilities_options : {capabilities_options}")
+        self.driver = webdriver.Remote(command_executor=appium_server_url, options=capabilities_options)
 
     def tearDown(self) -> None:
         print("tearDown")
