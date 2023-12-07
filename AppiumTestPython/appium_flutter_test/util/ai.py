@@ -80,14 +80,3 @@ def asis(self, driver: webdriver.WebDriver):
 # 클릭 함수는 click_element_by_xpath 혹은 click_element_by_id
 # 키 입력 함수는 send_keys_element_by_xpath 혹은 send_keys_element_by_id
 # 주석은 필요없어
-def tobe(self, driver: webdriver.WebDriver):
-    id_todo_list = util.get_element(aos="Todo list", ios="")
-    util.click_element_by_id(self.driver, id_todo_list)
-    
-    xpath_edit_text = util.get_element(aos="android.widget.EditText", ios="")
-    util.click_element_by_xpath(self.driver, xpath_edit_text)
-    util.send_keys_element_by_xpath(self.driver, xpath_edit_text, "veritatis pariatur delectus")
-    self.driver.hide_keyboard()
-    
-    id_veritatis = util.get_element(aos="2 / 27 / true / veritatis pariatur delectus", ios="")
-    util.click_element_by_id(self.driver, id_veritatis)
