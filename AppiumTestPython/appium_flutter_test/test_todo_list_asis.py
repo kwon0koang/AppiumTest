@@ -8,7 +8,7 @@ from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import config
-import util
+import util.util as util
 import sys
 from enum import Enum
 from pages.page_main import MainPage

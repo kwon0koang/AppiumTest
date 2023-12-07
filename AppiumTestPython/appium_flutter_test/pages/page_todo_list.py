@@ -1,4 +1,4 @@
-import util
+import util.util as util
 from pages.page_base import BasePage
 from appium.webdriver import webdriver
 

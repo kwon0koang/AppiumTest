@@ -60,5 +60,11 @@ self.driver.hide_keyboard()
 
 ===========================
 
-el2 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
+el2 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Todo list")
 el2.click()
+el3 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
+el3.click()
+el3.send_keys("veritatis pariatur delectus")
+driver.press_keycode(4, undefined, undefined);
+el4 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="2 / 27 / true / veritatis pariatur delectus")
+el4.click()

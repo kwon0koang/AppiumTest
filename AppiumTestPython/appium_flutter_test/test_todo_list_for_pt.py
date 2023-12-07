@@ -8,7 +8,7 @@ from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import config
-import util
+import util.util as util
 import sys
 from enum import Enum
 from pages.page_main import MainPage
@@ -39,7 +39,8 @@ class TestAppium(unittest.TestCase):
 
     def test_todo_list(self) -> None:
         
-        # todo kyk
+        # todo kyk 레코딩 테스트
+        # todo kyk POM
         
         time.sleep(0.5)
 

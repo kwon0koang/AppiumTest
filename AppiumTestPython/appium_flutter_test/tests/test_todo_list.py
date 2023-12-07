@@ -1,7 +1,7 @@
 import time
 from pages.page_main import MainPage
 from pages.page_todo_list import TodoListPage
-import util
+import util.util as util
 from tests.test_base import BaseTest
 import sys
 import unittest

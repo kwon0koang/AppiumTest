@@ -1,7 +1,7 @@
 import unittest
 from appium import webdriver
 import config
-import util
+import util.util as util
 
 class BaseTest(unittest.TestCase):
     def __init__(self, methodName='runTest', device=None):
