@@ -22,6 +22,12 @@ time.sleep(3)
 el = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Todo list")
 el.click()
 
+time.sleep(2)
+
+# 스크롤
+driver.swipe(700, 1500, 0, 0, 1000)
+driver.swipe(200, 500, 900, 1800, 1000)
+
 time.sleep(3)
 
 
