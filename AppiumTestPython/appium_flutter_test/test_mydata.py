@@ -69,7 +69,7 @@ class MyDataTest(unittest.TestCase):
             xpath_done_button = util.get_element(aos="//android.widget.ImageButton[@content-desc=\"입력완료\"]", ios="")
             util.click_element_by_xpath(self.driver, xpath_done_button)
         
-        time.sleep(5)
+        time.sleep(7)
         
         xpath_scroll_view = util.get_element(aos="//android.widget.ScrollView/android.widget.ImageView[2]", ios="")
         util.click_element_by_xpath(self.driver, xpath_scroll_view)
