@@ -11,41 +11,41 @@ device = 'aos_galaxy_note_10_plus'
 
 capabilities = {
   "aos_galaxy_note_10_plus" : {
-    "platformName": "android",
+    "platformName": "Android",
     "appium:deviceName": "aos_galaxy_note_10_plus",
     "appium:udid": "R3CMA0F73PL",
-    "appium:automationName": "uiautomator2",
+    "appium:automationName": "UiAutomator2",
     "appium:appPackage": "com.example.test_flutter",
     "appium:appActivity": ".MainActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
   "aos_lg_q_51" : {
-    "platformName": "android",
+    "platformName": "Android",
     "appium:deviceName": "aos_lg_q_51",
     "appium:udid": "LMQ510NKFSO5L9SBAL",
-    "appium:automationName": "uiautomator2",
+    "appium:automationName": "UiAutomator2",
     "appium:appPackage": "com.example.test_flutter",
     "appium:appActivity": ".MainActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
   "aos_galaxy_s_20_5g" : {
-    "platformName": "android",
+    "platformName": "Android",
     "appium:deviceName": "aos_galaxy_s_20_5g",
     "appium:udid": "R3CN30JZ89F",
-    "appium:automationName": "uiautomator2",
+    "appium:automationName": "UiAutomator2",
     "appium:appPackage": "com.example.test_flutter",
     "appium:appActivity": ".MainActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
   "ios_iphone_se_2022" : {
-    "platformName": "ios",
+    "platformName": "iOS",
     "appium:deviceName": "ios_iphone_se_2022",
     "appium:platformVersion": "15.4",
     "appium:udid": "00008110-00167D812280401E",
-    "appium:automationName": "xcuitest",
+    "appium:automationName": "XCUITest",
     "appium:bundleId": "com.kykdev.testFlutter",
     "appium:xcodeOrgId": "kwon0koang@naver.com",
     "appium:xcodeSigningId": "iPhone Developer",
@@ -73,7 +73,7 @@ ports = {
 #   "appium:deviceName": "Galaxy",
 #   "appium:appPackage": "com.example.test_flutter",
 #   "appium:appActivity": ".MainActivity",
-#   "appium:automationName": "UIAutomator2",
+#   "appium:automationName": "UiAutomator2",
 #   "appium:autoGrantPermissions": "true",
 #   "appium:noReset": "true"
 # }
@@ -93,10 +93,10 @@ ports = {
 # }
 # todo kyk iOS 테스트 앱 성공
 # capabilities = {
-#   "platformName": "ios",
+#   "platformName": "iOS",
 #   "appium:deviceName": "iPhone SE",
 #   "appium:platformVersion": "15.4",
-#   "appium:automationName": "xcuitest",
+#   "appium:automationName": "XCUITest",
 #   "appium:udid": "00008110-00167D812280401E",
 #   "appium:bundleId": "com.kykdev.IntegrationApp",
 #   "appium:xcodeOrgId": "kwon0koang@naver.com",
@@ -117,10 +117,10 @@ ports = {
 # iOS Success (https://velog.io/@tkjung/Appium-iOS-%ED%99%98%EA%B2%BD-%EC%85%8B%ED%8C%85#xcode%EC%97%90%EC%84%9C-webdriveragent-signing--build-settings-%EC%84%A4%EC%A0%95)
 # 실물 기기
 # {
-#   "platformName": "ios",
+#   "platformName": "iOS",
 #   "appium:deviceName": "iPhoneX",
 #   "appium:platformVersion": "15.2.1", 
-#   "appium:automationName": "xcuitest",
+#   "appium:automationName": "XCUITest",
 #   "appium:udid": "{UDID}",
 #   "appium:bundleId": "{실행할 앱의 Bundle ID}",
 #   "appium:xcodeOrgId": "{애플 개발자 계정에서 식별해둔 Team ID}",
@@ -128,8 +128,8 @@ ports = {
 # }
 # 시뮬레이터
 # {
-#   "platformName": "ios",
-#   "appium:automationName": "xcuitest",
+#   "platformName": "iOS",
+#   "appium:automationName": "XCUITest",
 #   "appium:deviceName": "simulator",
 #   "appium:platformVersion": "14.1",
 #   "appium:udid": "{UDID}",

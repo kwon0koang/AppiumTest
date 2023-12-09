@@ -5,14 +5,15 @@ from appium.options.android import UiAutomator2Options
 
 # 테스트 앱 열기
 capabilities = UiAutomator2Options().load_capabilities({
-  "platformName": "android",
+  "platformName": "Android",
   "appium:deviceName": "aos_galaxy_note_10_plus",
   "appium:udid": "R3CMA0F73PL",
-  "appium:automationName": "uiautomator2",
+  "appium:automationName": "UiAutomator2",
   "appium:appPackage": "com.example.test_flutter",
   "appium:appActivity": ".MainActivity",
   "appium:autoGrantPermissions": "true",
-  "appium:noReset": "true"
+  "appium:noReset": "true",
+  "appium:newCommandTimeout": "3000"
 })
 driver = webdriver.Remote(command_executor="http://localhost:4723", options=capabilities)
 
