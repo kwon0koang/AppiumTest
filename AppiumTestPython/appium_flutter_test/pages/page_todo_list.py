@@ -5,7 +5,7 @@ from appium.webdriver import webdriver
 class TodoListPage(BasePage):
 
     def send_keys_filter_text(self):
-        xpath_filter_text = util.get_element(aos="//android.widget.EditText", ios="//XCUIElementTypeTextField[@name=\"Filter text\"]")
+        xpath_filter_text = util.get_element(aos="//android.widget.EditText", ios='//XCUIElementTypeTextField[@name="Filter text"]')
         util.click_element_by_xpath(self.driver, xpath_filter_text)
         util.send_keys_element_by_xpath(self.driver, xpath_filter_text, "veritatis pariatur delectus")
         self.driver.hide_keyboard()

@@ -53,7 +53,7 @@ class Platform(Enum):
     AOS = 1001
     IOS = 1002
 def get_platform() -> Platform:
-    if (get_capabilites()['platformName'] == 'ios'):
+    if (get_capabilites()['platformName'].lower() == 'ios'):
         return Platform.IOS
     else:
         return Platform.AOS
