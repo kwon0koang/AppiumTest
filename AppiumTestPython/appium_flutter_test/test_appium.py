@@ -26,7 +26,7 @@ el.click()
 time.sleep(2)
 
 # 스크롤
-driver.swipe(700, 1500, 0, 0, 1000)
+driver.swipe(700, 800, 0, 0, 1000)
 driver.swipe(200, 500, 900, 1800, 1000)
 
 time.sleep(3)

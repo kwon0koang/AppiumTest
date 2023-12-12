@@ -63,15 +63,8 @@ def afterRefactoring(self, driver: webdriver.WebDriver):
 # ===================================================================================================================================================================================================================================================================================================================================================================================================================
 
 def asis(self, driver: webdriver.WebDriver):
-    el2 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Todo list")
-    el2.click()
-    el3 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
-    el3.click()
-    el3.send_keys("veritatis pariatur delectus")
-    driver.press_keycode(4, undefined, undefined);
-    el4 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="2 / 27 / true / veritatis pariatur delectus")
-    el4.click()
-    
+    # todo kyk
+
 # ===================================================================================================================================================================================================================================================================================================================================================================================================================
 
 # beforeRefactoring() 함수를 리팩토링하면 afterRefactoring() 함수야. 이 두 함수를 학습해서 asis() 함수를 리팩토링해줘. 조건은 아래와 같아
