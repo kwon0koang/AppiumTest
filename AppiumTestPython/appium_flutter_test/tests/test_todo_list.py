@@ -17,6 +17,7 @@ class TodoListTest(BaseTest):
         todo_list_page.scroll_down()
         todo_list_page.scroll_up()
         todo_list_page.send_keys_filter_text()
+        todo_list_page.check_todo_item()
         todo_list_page.click_todo_item()
         
         time.sleep(0.5)
