@@ -58,6 +58,7 @@ capabilities = {
     "platformName": "Android",
     "appium:deviceName": "aos_galaxy_s_22_ultra",
     "appium:udid": "R3CT10E16RK",
+    "appium:systemPort": "8204",
     "appium:automationName": "UiAutomator2",
     "appium:appPackage": "com.example.test_flutter",
     "appium:appActivity": ".MainActivity",

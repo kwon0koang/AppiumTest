@@ -8,21 +8,21 @@ class TodoListPage(BasePage):
     testCase = unittest.TestCase()
 
     def send_keys_filter_text(self):
-        xpath_filter_text = util.get_element(aos="//android.widget.EditText", ios='//XCUIElementTypeTextField[@name="Filter text"]')
-        util.click_element_by_xpath(self.driver, xpath_filter_text)
-        util.send_keys_element_by_xpath(self.driver, xpath_filter_text, "veritatis pariatur delectus")
+        xpath_filter_text = util.get_value(aos="//android.widget.EditText", ios='//XCUIElementTypeTextField[@name="Filter text"]')
+        util.click_by_xpath(self.driver, xpath_filter_text)
+        util.send_keys_by_xpath(self.driver, xpath_filter_text, "veritatis pariatur delectus")
         self.driver.hide_keyboard()
         # driver.press_keycode(4) // back key
         
     def check_todo_item(self):
-        id_todo_item = util.get_element(aos="2 / 27 / true / veritatis pariatur delectus", ios="2 / 27 / true / veritatis pariatur delectus")
-        el = util.find_element_by_id(self.driver, id_todo_item)
+        id_todo_item = util.get_value(aos="2 / 27 / true / veritatis pariatur delectus", ios="2 / 27 / true / veritatis pariatur delectus")
+        el = util.find_by_id(self.driver, id_todo_item)
         content_desc = el.get_attribute("content-desc")
         self.testCase.assertEqual(content_desc, '2 / 27 / true / veritatis pariatur delectus')
 
     def click_todo_item(self):
-        id_todo_item = util.get_element(aos="2 / 27 / true / veritatis pariatur delectus", ios="2 / 27 / true / veritatis pariatur delectus")
-        util.click_element_by_id(self.driver, id_todo_item)
+        id_todo_item = util.get_value(aos="2 / 27 / true / veritatis pariatur delectus", ios="2 / 27 / true / veritatis pariatur delectus")
+        util.click_by_id(self.driver, id_todo_item)
 
     def scroll_up(self):
         util.scroll(self.driver, util.ScrollDirection.UP)
