@@ -18,7 +18,7 @@ class TodoListPage(BasePage):
         id_todo_item = util.get_value(aos="2 / 27 / true / veritatis pariatur delectus", ios="2 / 27 / true / veritatis pariatur delectus")
         el = util.find_by_id(self.driver, id_todo_item)
         content_desc = el.get_attribute("content-desc")
-        self.testCase.assertEqual(content_desc, '2 / 27 / true / veritatis pariatur delectus')
+        self.testCase.assertEqual(content_desc, '2 / 27 / true / veritatis pariatur delectus', '검증 실패 :(')
 
     def click_todo_item(self):
         id_todo_item = util.get_value(aos="2 / 27 / true / veritatis pariatur delectus", ios="2 / 27 / true / veritatis pariatur delectus")
