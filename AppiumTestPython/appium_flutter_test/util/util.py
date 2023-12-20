@@ -77,32 +77,38 @@ def get_value(aos: str, ios: str):
     return aos if get_platform() == Platform.AOS else ios
 
 # 클릭할 수 있을 때까지 기다림
+def wait(driver: webdriver.WebDriver, by: str, value: str):
+    wait = WebDriverWait(driver, 30)
+    wait.until(EC.element_to_be_clickable((by, value)))
 def wait_by_id(driver: webdriver.WebDriver, id: str):
-    wait = WebDriverWait(driver, 30)
-    wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, id)))
+    wait(driver, AppiumBy.ACCESSIBILITY_ID, id)
 def wait_by_xpath(driver: webdriver.WebDriver, xpath: str):
-    wait = WebDriverWait(driver, 30)
-    wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, xpath)))
+    wait(driver, AppiumBy.XPATH, id)
 
 # 클릭할 수 있을 때 element 반환
+def find(driver: webdriver.WebDriver, by: str, value: str) -> WebElement:
+    wait(driver, by, value)
+    return driver.find_element(by=by, value=value)
 def find_by_id(driver: webdriver.WebDriver, id: str) -> WebElement:
-    wait_by_id(driver, id)
-    return driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value=id)
+    return find(driver, AppiumBy.ACCESSIBILITY_ID, id)
 def find_by_xpath(driver: webdriver.WebDriver, xpath: str) -> WebElement:
-    wait_by_xpath(driver, xpath)
-    return driver.find_element(by=AppiumBy.XPATH, value=xpath)
+    return find(driver, AppiumBy.XPATH, xpath)
 
 # 클릭할 수 있을 때 element 클릭
+def click(driver: webdriver.WebDriver, by: str, value: str):
+    find(driver, by, value).click()
 def click_by_id(driver: webdriver.WebDriver, id: str):
-    find_by_id(driver, id).click()
+    find(driver, AppiumBy.ACCESSIBILITY_ID, id).click()
 def click_by_xpath(driver: webdriver.WebDriver, xpath: str):
-    find_by_xpath(driver, xpath).click()
+    find(driver, AppiumBy.XPATH, xpath).click()
     
 # 클릭할 수 있을 때 element 키 입력
+def send_keys(driver: webdriver.WebDriver, by: str, el_value: str, value: str):
+    find(driver, by, el_value).send_keys(value)
 def send_keys_by_id(driver: webdriver.WebDriver, id: str, value: str):
-    find_by_id(driver, id).send_keys(value)
+    find(driver, AppiumBy.ACCESSIBILITY_ID, id).send_keys(value)
 def send_keys_by_xpath(driver: webdriver.WebDriver, xpath: str, value: str):
-    find_by_xpath(driver, xpath).send_keys(value)
+    find(driver, AppiumBy.XPATH, xpath).send_keys(value)
 
 # 스크롤
 class ScrollDirection(Enum):
