@@ -14,6 +14,7 @@ capabilities = {
     "platformName": "Android",
     "appium:deviceName": "aos_galaxy_note_10_plus",
     "appium:udid": "R3CMA0F73PL",
+    "appium:systemPort": "8200",
     "appium:automationName": "UiAutomator2",
     "appium:appPackage": "com.example.test_flutter",
     "appium:appActivity": ".MainActivity",
@@ -24,6 +25,7 @@ capabilities = {
     "platformName": "Android",
     "appium:deviceName": "aos_lg_q_51",
     "appium:udid": "LMQ510NKFSO5L9SBAL",
+    "appium:systemPort": "8201",
     "appium:automationName": "UiAutomator2",
     "appium:appPackage": "com.example.test_flutter",
     "appium:appActivity": ".MainActivity",
@@ -34,6 +36,18 @@ capabilities = {
     "platformName": "Android",
     "appium:deviceName": "aos_galaxy_s_20_5g",
     "appium:udid": "R3CN30JZ89F",
+    "appium:systemPort": "8202",
+    "appium:automationName": "UiAutomator2",
+    "appium:appPackage": "com.example.test_flutter",
+    "appium:appActivity": ".MainActivity",
+    "appium:autoGrantPermissions": "true",
+    "appium:noReset": "true"
+  },
+  "aos_galaxy_s_22_ultra" : {
+    "platformName": "Android",
+    "appium:deviceName": "aos_galaxy_s_22_ultra",
+    "appium:udid": "R3CT10E16RK",
+    "appium:systemPort": "8203",
     "appium:automationName": "UiAutomator2",
     "appium:appPackage": "com.example.test_flutter",
     "appium:appActivity": ".MainActivity",
@@ -55,6 +69,7 @@ capabilities = {
     "appium:deviceName": "ios_iphone_se_2022",
     "appium:platformVersion": "15.4",
     "appium:udid": "00008110-00167D812280401E",
+    "appium:wdaLocalPort": "8100",
     "appium:automationName": "XCUITest",
     "appium:bundleId": "com.kykdev.testFlutter",
     "appium:xcodeOrgId": "kwon0koang@naver.com",
@@ -63,14 +78,13 @@ capabilities = {
     "appium:noReset": "true"
   },
 }
-ports = {
-  "aos_galaxy_note_10_plus" : 4723,
-  "aos_lg_q_51" : 4724,
-  "aos_galaxy_s_20_5g" : 4725,
-  "aos_galaxy_s_22_ultra" : 4726,
-  "ios_iphone_se_2022" : 4727,
-}
-
+# ports = {
+#   "aos_galaxy_note_10_plus" : 4723,
+#   "aos_lg_q_51" : 4724,
+#   "aos_galaxy_s_20_5g" : 4725,
+#   "aos_galaxy_s_22_ultra" : 4726,
+#   "ios_iphone_se_2022" : 4727,
+# }
 
 
 

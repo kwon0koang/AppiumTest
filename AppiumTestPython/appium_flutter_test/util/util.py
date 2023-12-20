@@ -47,7 +47,8 @@ def get_capabilites():
     return config.capabilities[config.device]
 
 def get_port() -> int: 
-    return config.ports[config.device]
+    return 4723
+    # return config.ports[config.device]
 
 class Platform(Enum):
     AOS = 1001
