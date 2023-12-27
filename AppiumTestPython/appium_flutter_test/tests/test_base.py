@@ -9,11 +9,19 @@ class BaseTest(unittest.TestCase):
         super().__init__(methodName)
         self.device = device
 
-    def setUp(self) -> None:
+    def setUp(self, app_package: str = None, app_activity: str = None, bundle_id: str = None) -> None:
         # 디바이스 셋팅
         if self.device:
             config.device = self.device
         
+        # 테스트 앱 셋팅
+        if app_package:
+            util.get_capabilites()["appium:appPackage"] = app_package
+        if app_activity:
+            util.get_capabilites()["appium:appActivity"] = app_activity
+        if bundle_id:
+            util.get_capabilites()["appium:bundleId"] = bundle_id
+            
         # 드라이버 셋팅
         appium_server_url = f"{config.appium_server_host}:{util.get_port()}"
         capabilities_options = util.get_capabilities_options()

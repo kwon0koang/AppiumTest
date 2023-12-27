@@ -9,6 +9,7 @@ appium_server_host = 'http://localhost'
 # 테스트 파이썬 스크립트 실행 시 전달받도록 함
 device = 'aos_galaxy_note_10_plus'
 
+# appPackage, appActivity, bundleId는 테스트 파일 별로 달라져야 해서 테스트 파일 내 setUp에서 추가됨
 capabilities = {
   "aos_galaxy_note_10_plus" : {
     "platformName": "Android",
@@ -16,8 +17,8 @@ capabilities = {
     "appium:udid": "R3CMA0F73PL",
     "appium:systemPort": "8200",
     "appium:automationName": "UiAutomator2",
-    "appium:appPackage": "com.example.test_flutter",
-    "appium:appActivity": ".MainActivity",
+    # "appium:appPackage": "com.example.test_flutter",
+    # "appium:appActivity": ".MainActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
@@ -27,8 +28,8 @@ capabilities = {
     "appium:udid": "LMQ510NKFSO5L9SBAL",
     "appium:systemPort": "8201",
     "appium:automationName": "UiAutomator2",
-    "appium:appPackage": "com.example.test_flutter",
-    "appium:appActivity": ".MainActivity",
+    # "appium:appPackage": "com.example.test_flutter",
+    # "appium:appActivity": ".MainActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
@@ -38,8 +39,8 @@ capabilities = {
     "appium:udid": "R3CN30JZ89F",
     "appium:systemPort": "8202",
     "appium:automationName": "UiAutomator2",
-    "appium:appPackage": "com.example.test_flutter",
-    "appium:appActivity": ".MainActivity",
+    # "appium:appPackage": "com.example.test_flutter",
+    # "appium:appActivity": ".MainActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
@@ -48,9 +49,9 @@ capabilities = {
     "appium:deviceName": "aos_galaxy_s_22_ultra",
     "appium:udid": "R3CT10E16RK",
     "appium:systemPort": "8203",
-    "appium:automationName": "UiAutomator2",
-    "appium:appPackage": "com.example.test_flutter",
-    "appium:appActivity": ".MainActivity",
+    # "appium:automationName": "UiAutomator2",
+    # "appium:appPackage": "plus.steps.sapp.dev",
+    "appium:appActivity": ".intro.IntroActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
@@ -60,8 +61,8 @@ capabilities = {
     "appium:udid": "R3CT10E16RK",
     "appium:systemPort": "8204",
     "appium:automationName": "UiAutomator2",
-    "appium:appPackage": "com.example.test_flutter",
-    "appium:appActivity": ".MainActivity",
+    # "appium:appPackage": "com.example.test_flutter",
+    # "appium:appActivity": ".MainActivity",
     "appium:autoGrantPermissions": "true",
     "appium:noReset": "true"
   },
@@ -72,7 +73,7 @@ capabilities = {
     "appium:udid": "00008110-00167D812280401E",
     "appium:wdaLocalPort": "8100",
     "appium:automationName": "XCUITest",
-    "appium:bundleId": "com.kykdev.testFlutter",
+    # "appium:bundleId": "com.kykdev.testFlutter",
     "appium:xcodeOrgId": "kwon0koang@naver.com",
     "appium:xcodeSigningId": "iPhone Developer",
     "appium:autoGrantPermissions": "true",

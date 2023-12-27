@@ -1,10 +1,17 @@
 import time
+import util.util as util
 import unittest
 from pages.page_main import MainPage
 from tests.test_base import BaseTest
 
 class Temp01Test(BaseTest):
 
+    def setUp(self) -> None:
+        if util.get_platform() == util.Platform.AOS:
+            super().setUp(app_package="com.example.test_flutter", app_activity=".MainActivity")
+        else:
+            super().setUp(bundle_id="com.kykdev.testFlutter")
+        
     def test_temp_01(self) -> None:
         time.sleep(0.5)
         
