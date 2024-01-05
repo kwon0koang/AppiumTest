@@ -10,6 +10,20 @@ def beforeRefactoring(driver: webdriver.WebDriver):
     el.click()
     el = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Test element 3")
     el.click()
+    
+    el = driver.find_element(by=AppiumBy.ID, value="Test element 4")
+    el.click()
+    el = driver.find_element(by=AppiumBy.ID, value="Test element 5")
+    el.click()
+    el = driver.find_element(by=AppiumBy.ID, value="Test element 6")
+    el.click()
+
+    el = driver.find_element(by=AppiumBy.XPATH, value="//android.widget.TextView111")
+    el.click()
+    el = driver.find_element(by=AppiumBy.XPATH, value="//android.widget.TextView222")
+    el.click()
+    el = driver.find_element(by=AppiumBy.XPATH, value="//android.widget.TextView333")
+    el.click()
 
     el = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText111")
     el.click()
@@ -34,35 +48,51 @@ def beforeRefactoring(driver: webdriver.WebDriver):
 # ===================================================================================================================================================================================================================================================================================================================================================================================================================
 def afterRefactoring(self, driver: webdriver.WebDriver):
     id_test_element_1 = util.get_value(aos="Test element 1", ios="")
-    util.click_by_id(self.driver, id_test_element_1)
+    util.click(self.driver, AppiumBy.ACCESSIBILITY_ID, id_test_element_1)
     id_test_element_2 = util.get_value(aos="Test element 2", ios="")
-    util.click_by_id(self.driver, id_test_element_2)
+    util.click(self.driver, AppiumBy.ACCESSIBILITY_ID, id_test_element_2)
     id_test_element_3 = util.get_value(aos="Test element 3", ios="")
-    util.click_by_id(self.driver, id_test_element_3)
+    util.click(self.driver, AppiumBy.ACCESSIBILITY_ID, id_test_element_3)
+    
+    id_test_element_1 = util.get_value(aos="Test element 1", ios="")
+    util.click(self.driver, AppiumBy.ID, id_test_element_1)
+    id_test_element_2 = util.get_value(aos="Test element 2", ios="")
+    util.click(self.driver, AppiumBy.ID, id_test_element_2)
+    id_test_element_3 = util.get_value(aos="Test element 3", ios="")
+    util.click(self.driver, AppiumBy.ID, id_test_element_3)
+    
+    xpath_test_element_1 = util.get_value(aos="//android.widget.TextView111", ios="")
+    util.click(self.driver, AppiumBy.XPATH, id_test_element_1)
+    xpath_test_element_2 = util.get_value(aos="//android.widget.TextView222", ios="")
+    util.click(self.driver, AppiumBy.XPATH, id_test_element_2)
+    xpath_test_element_3 = util.get_value(aos="//android.widget.TextView333", ios="")
+    util.click(self.driver, AppiumBy.XPATH, id_test_element_3)
 
     xpath_edit_text_1 = util.get_value(aos="//android.widget.EditText111", ios="")
-    util.click_by_xpath(self.driver, xpath_edit_text_1)
+    util.click(self.driver, AppiumBy.XPATH, xpath_edit_text_1)
     xpath_edit_text_2 = util.get_value(aos="//android.widget.EditText222", ios="")
-    util.click_by_xpath(self.driver, xpath_edit_text_2)
+    util.click(self.driver, AppiumBy.XPATH, xpath_edit_text_2)
     xpath_edit_text_3 = util.get_value(aos="//android.widget.EditText333", ios="")
-    util.click_by_xpath(self.driver, xpath_edit_text_3)
+    util.click(self.driver, AppiumBy.XPATH, xpath_edit_text_3)
 
     xpath_edit_text_777 = util.get_value(aos="//android.widget.EditText777", ios="")
-    util.click_by_xpath(self.driver, xpath_edit_text_777)
-    util.send_keys_by_xpath(self.driver, xpath_edit_text_777, "aaa")
+    util.click(self.driver, AppiumBy.XPATH, xpath_edit_text_777)
+    util.send_keys(self.driver, AppiumBy.XPATH, xpath_edit_text_777, "aaa")
     self.driver.hide_keyboard()
     xpath_edit_text_888 = util.get_value(aos="//android.widget.EditText888", ios="")
-    util.click_by_xpath(self.driver, xpath_edit_text_888)
-    util.send_keys_by_xpath(self.driver, xpath_edit_text_888, "bbb")
+    util.click(self.driver, AppiumBy.XPATH, xpath_edit_text_888)
+    util.send_keys(self.driver, AppiumBy.XPATH, xpath_edit_text_888, "bbb")
     self.driver.hide_keyboard()
     xpath_edit_text_999 = util.get_value(aos="//android.widget.EditText999", ios="")
-    util.click_by_xpath(self.driver, xpath_edit_text_999)
-    util.send_keys_by_xpath(self.driver, xpath_edit_text_999, "ccc")
+    util.click(self.driver, AppiumBy.XPATH, xpath_edit_text_999)
+    util.send_keys(self.driver, AppiumBy.XPATH, xpath_edit_text_999, "ccc")
     self.driver.hide_keyboard()
   
 # ===================================================================================================================================================================================================================================================================================================================================================================================================================
 
 def asis(self, driver: webdriver.WebDriver):
+    el13 = driver.find_element(by=AppiumBy.ID, value="plus.steps.sapp.dev:id/btn_custom_keypad_confirm")
+    el13.click()
 
 # ===================================================================================================================================================================================================================================================================================================================================================================================================================
 
@@ -72,9 +102,3 @@ def asis(self, driver: webdriver.WebDriver):
 # 클릭 함수는 click_element_by_xpath 혹은 click_element_by_id
 # 키 입력 함수는 send_keys_element_by_xpath 혹은 send_keys_element_by_id
 # 주석은 필요없어
-
-
-
-
-
-
