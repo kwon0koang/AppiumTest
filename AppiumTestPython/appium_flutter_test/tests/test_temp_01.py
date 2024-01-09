@@ -15,5 +15,5 @@ class Temp01Test(BaseTest):
     def test_skip(self):
         pass
     
-    # def test_fail(self):
-    #     self.assertEqual(1, 2)
+    def test_fail(self):
+        self.assertEqual(1, 2)
