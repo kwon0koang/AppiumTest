@@ -19,6 +19,10 @@ class BaseTest(unittest.TestCase):
         capabilities_options = util.get_capabilities_options()
         print(f"setUp / device : {config.device} / appium_server_url : {appium_server_url}")
         self.driver = webdriver.Remote(command_executor=appium_server_url, options=capabilities_options)
+        
+        # DOM이 유휴 상태가 되기 기다리는 것을 방지 (이것을 하지 않으면 엄청 느림. UiAutomator2와 관련있음)
+        # https://stackoverflow.com/questions/66021973/appium-works-very-slow-on-screen-having-dynamic-mobile-elements
+        self.driver.update_settings({"waitForIdleTimeout": 0})
 
     def tearDown(self) -> None:
         print("tearDown")
