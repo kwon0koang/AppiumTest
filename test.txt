@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# 변수 선언
+port=9999
+target="${port}:10.10.30.141:22" # 9999:10.10.21.5:22
+
+# 포트 사용하고 있는 ssh 프로세스 찾기
+ssh_processes=$(ps -ef | grep ssh | grep -E "$port")
+
+# 찾은 프로세스에서 target 포함되어 있는지 확인
+for ssh_process in $ssh_processes; do
+  if echo $ssh_process | grep -q "$target"; then
+    echo "이미 터널링되어 있음"
+    exit 0
+  fi
+done
+
+echo "터널링 시작"
+
+# 포트 사용하는 ssh 프로세스 킬
+#kill -9 $(ps -ef | grep ssh | grep "$port" | awk '{print $2}')
+#sleep 1
+
+# 터널링
+sshpass -p "cts0401()" ssh -Nf -L "$target" webcts@3.39.42.168 -o StrictHostKeyChecking=no
+sleep 1

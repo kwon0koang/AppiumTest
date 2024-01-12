@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="text-capitalize">Test Results</h2>
-                <p class='attribute'><strong>Start Time: </strong>2023-11-16 23:40:25</p>
-                <p class='attribute'><strong>Duration: </strong>21.15 s</p>
-                <p class='attribute'><strong>Summary: </strong>Total: 5, Pass: 3, Error: 1, Skip: 1</p>
+                <p class='attribute'><strong>Start Time: </strong>2024-01-10 21:21:11</p>
+                <p class='attribute'><strong>Duration: </strong>37.13 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 5, Pass: 2, Fail: 1, Error: 1, Skip: 1</p>
             </div>
         </div>
         <div class="row">
@@ -21,7 +21,7 @@
                 <table class='table table-hover table-responsive'>
                     <thead>
                         <tr>
-                            <th>todo_list_test.TodoListTest</th>
+                            <th>tests.test_todo_list.TodoListTest</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
@@ -37,8 +37,7 @@
                             </td>
                         </tr>
                         <tr style="display:none;">
-                            <td class="col-xs-9" colspan="3"><p>setUp / self.custom_parameter : ios
-setUp / util.platform : Platform.IOS
+                            <td class="col-xs-9" colspan="3"><p>setUp / device : aos_galaxy_s_20_5g / appium_server_url : http://localhost:4723
 tearDown
 tearDown / quit
 </p>
@@ -46,7 +45,7 @@ tearDown / quit
                         </tr>
                         <tr>
                             <td colspan="3">
-                                Total: 1, Pass: 1 -- Duration: 11.55 s
+                                Total: 1, Pass: 1 -- Duration: 18.20 s
                             </td>
                         </tr>
                     </tbody>
@@ -58,44 +57,7 @@ tearDown / quit
                 <table class='table table-hover table-responsive'>
                     <thead>
                         <tr>
-                            <th>temp_01_test.Temp01Test</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class='success'>
-                            <td class="col-xs-10">test_temp_01</td>
-                            <td class="col-xs-1">
-                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
-                            </td>
-                            <td class="col-xs-1">
-                                <button class="btn btn-default btn-xs">View</button>
-                            </td>
-                        </tr>
-                        <tr style="display:none;">
-                            <td class="col-xs-9" colspan="3"><p>setUp / self.custom_parameter : ios
-setUp / util.platform : Platform.IOS
-tearDown
-tearDown / quit
-</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                Total: 1, Pass: 1 -- Duration: 3.41 s
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-10 col-md-10">
-                <table class='table table-hover table-responsive'>
-                    <thead>
-                        <tr>
-                            <th>temp_02_test.Temp02Test</th>
+                            <th>tests.test_temp_01.Temp01Test</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
@@ -111,12 +73,33 @@ tearDown / quit
                             </td>
                         </tr>
                         <tr style="display:none;">
-                            <td class="col-xs-9" colspan="3"><p>setUp / self.custom_parameter : ios
-setUp / util.platform : Platform.IOS
+                            <td class="col-xs-9" colspan="3"><p>setUp / device : aos_galaxy_s_20_5g / appium_server_url : http://localhost:4723
 </p><p style="color:maroon;">ValueError: 에러 테스트 :)</p><p style="color:maroon;">Traceback (most recent call last):
-  File "/Users/user/kykdev/0500_Appium/AppiumTest/AppiumTestPython/appium_flutter_test/tests/temp_02_test.py", line 12, in test_error
+  File "/Users/user/kykdev/0500_Appium/AppiumTest/AppiumTestPython/appium_flutter_test/tests/test_temp_01.py", line 12, in test_error
     raise ValueError("에러 테스트 :)")
 ValueError: 에러 테스트 :)
+</p>
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_fail</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>setUp / device : aos_galaxy_s_20_5g / appium_server_url : http://localhost:4723
+</p><p style="color:maroon;">AssertionError: 1 != 2</p><p style="color:maroon;">Traceback (most recent call last):
+  File "/Users/user/kykdev/0500_Appium/AppiumTest/AppiumTestPython/appium_flutter_test/tests/test_temp_01.py", line 19, in test_fail
+    self.assertEqual(1, 2)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 873, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 866, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1 != 2
 </p>
                             </td>
                         </tr>
@@ -143,8 +126,7 @@ ValueError: 에러 테스트 :)
                             </td>
                         </tr>
                         <tr style="display:none;">
-                            <td class="col-xs-9" colspan="3"><p>setUp / self.custom_parameter : ios
-setUp / util.platform : Platform.IOS
+                            <td class="col-xs-9" colspan="3"><p>setUp / device : aos_galaxy_s_20_5g / appium_server_url : http://localhost:4723
 tearDown
 tearDown / quit
 </p>
@@ -152,7 +134,7 @@ tearDown / quit
                         </tr>
                         <tr>
                             <td colspan="3">
-                                Total: 3, Pass: 1, Error: 1, Skip: 1 -- Duration: 6.19 s
+                                Total: 4, Pass: 1, Fail: 1, Error: 1, Skip: 1 -- Duration: 18.93 s
                             </td>
                         </tr>
                     </tbody>
